@@ -722,21 +722,25 @@ body {
 
 @media (max-width: 768px) {
   .hero-scroll-track {
-    height: 300vh;
-    /* Match products-section background so dead zone after sticky is invisible */
-    background-color: #08080a;
+    height: 200vh;
+    background-color: #050505;
   }
 
-  /* Use small viewport height — stable even when browser chrome shows/hides */
+  /* Crop out the black void: make stage 50vh tall but centered */
   .hero-sticky-stage {
-    height: 100svh;
-    height: 100vh; /* fallback */
+    height: 50vh !important;
+    top: 25vh !important;
+    overflow: hidden;
   }
 
-  /* Canvas fills the full mobile screen cleanly */
+  /* Canvas internal render is 100vh. We offset it so it centers inside the 50vh container.
+     The container's overflow:hidden perfectly crops the 25vh top/bottom black bars! */
   #hero-sequence-canvas {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh !important;
+    position: absolute !important;
+    top: -25vh !important;
+    max-height: none;
   }
 
   .hero-progress-container {

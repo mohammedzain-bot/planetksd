@@ -734,35 +734,6 @@ function initHeroCanvasSequence() {
 document.addEventListener('DOMContentLoaded', () => {
   updateCartUI();
   initHeroCanvasSequence();
-
-  // ── Mobile: Skip the blank dead zone after hero animation ──────────────────
-  // The hero-sticky-stage (100vh) exits when scrolled past (track_height - 100vh).
-  // After that, there is ~100vh of empty track background before products start.
-  // On mobile we detect this zone and instantly snap the user to products.
-  if (window.innerWidth <= 768) {
-    const track = document.getElementById('hero-scroll-track');
-    const products = document.getElementById('products');
-    if (track && products) {
-      let lastY = window.scrollY;
-      let snapping = false;
-
-      window.addEventListener('scroll', () => {
-        if (snapping) return;
-        const currentY = window.scrollY;
-        const goingDown = currentY > lastY;
-        lastY = currentY;
-
-        if (!goingDown) return;
-
-        const deadZoneStart = track.offsetTop + track.offsetHeight - window.innerHeight;
-        const deadZoneEnd   = track.offsetTop + track.offsetHeight;
-
-        if (currentY >= deadZoneStart && currentY < deadZoneEnd) {
-          snapping = true;
-          window.scrollTo({ top: deadZoneEnd, behavior: 'smooth' });
-          setTimeout(() => { snapping = false; }, 600);
-        }
-      }, { passive: true });
-    }
-  }
 });
+
+
