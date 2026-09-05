@@ -720,9 +720,10 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Shorter scroll track so animation completes without excessive scrolling */
+  /* Scroll track height = sticky height (100vh) + scroll range (100vh) = 200vh total.
+     This means animation scrolls for exactly 100vh with zero dead black zone at end. */
   .hero-scroll-track {
-    height: 300vh;
+    height: 200vh;
   }
 
   /* Use small viewport height — stable even when browser chrome shows/hides */
