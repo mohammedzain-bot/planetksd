@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phone Detail — PLANET KSD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#050505',
+            gold: { DEFAULT: '#C8A36A', light: '#DFBA7F' },
+            appleGray: '#8E8E93',
+            appleMuted: '#636366',
+          },
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { background: #050505; color: #fff; font-family: 'Inter', sans-serif; }
+    .detail-img { max-height: 55vw; max-width: 90%; object-fit: contain; }
+    @media (min-width: 640px) { .detail-img { max-height: 380px; } }
+    .storage-btn { padding: 8px 18px; border-radius: 10px; font-size: 0.85rem; font-weight: 600; border: 1.5px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); color: #8E8E93; cursor: pointer; transition: all 0.2s; }
+    .storage-btn.active { border-color: #C8A36A; color: #C8A36A; background: rgba(200,163,106,0.12); }
+    .storage-btn:hover:not(.active) { border-color: rgba(255,255,255,0.3); color: #fff; }
+    .spec-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .spec-row:last-child { border-bottom: none; }
+    .wa-btn { background: #25D366; color: #fff; padding: 16px; border-radius: 16px; font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; transition: all 0.2s; }
+    .wa-btn:hover { background: #1ebe5d; transform: translateY(-1px); }
+    .back-btn { display: flex; align-items: center; gap: 6px; color: #C8A36A; font-weight: 600; font-size: 0.9rem; padding: 10px 0; }
+    .tag-pill { padding: 5px 12px; border-radius: 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #8E8E93; font-size: 0.75rem; font-weight: 500; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-[#050505]/90 backdrop-blur-lg border-b border-white/5">
+    <div class="max-w-3xl mx-auto px-4 h-13 flex items-center justify-between py-3">
+      <a href="index.html" class="back-btn">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back
+      </a>
+      <a href="index.html" class="text-white font-bold tracking-widest text-sm">PLANET KSD</a>
+      <a href="https://wa.me/919697771771" target="_blank" class="text-[#25D366]">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.813h.005c3.179 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.773-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.356.102.174.454.748.974 1.211.67.597 1.233.782 1.407.869.173.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- MAIN DETAIL -->
+  <div id="detail-container" class="max-w-3xl mx-auto px-4 py-6 pb-28">
+    <!-- Will be rendered by JS -->
+    <div id="loading" class="flex flex-col items-center justify-center h-64">
+      <div class="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin mb-4"></div>
+      <p class="text-appleGray text-sm">Loading...</p>
+    </div>
+  </div>
+
+  <!-- STICKY BOTTOM CTA -->
+  <div id="bottom-cta" class="hidden fixed bottom-0 left-0 right-0 bg-[#050505]/95 backdrop-blur-lg border-t border-white/5 px-4 py-4 z-50">
+    <div class="max-w-3xl mx-auto flex gap-3">
+      <a id="wa-cta-btn" href="#" target="_blank" class="wa-btn flex-1">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.813h.005c3.179 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.773-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.356.102.174.454.748.974 1.211.67.597 1.233.782 1.407.869.173.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/>
+        </svg>
+        Enquire on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const PHONES = {
+      'iphone-17-pro-max': {
+        name: 'iPhone 17 Pro Max',
+        badge: 'Ultimate Flagship',
+        tagline: 'The most powerful iPhone ever made.',
+        image: 'assets/images/iphone17-promax-silver.png',
+        colors: ['Natural Titanium', 'Black Titanium', 'White Titanium', 'Desert Titanium'],
+        storage: [
+          { label: '256GB', price: 149900 },
+          { label: '512GB', price: 169900 },
+          { label: '1TB',   price: 199900 },
+        ],
+        highlights: [
+          '6.9" Super Retina XDR ProMotion OLED',
+          'A19 Pro chip — fastest mobile chip ever',
+          '48MP Quad-Prism with 10x Optical Zoom',
+          'Grade 5 Titanium aerospace-grade chassis',
+          'Apple Intelligence with Siri upgrade',
+          'USB-C 3 — up to 120 Gbps transfers',
+          'Action Button & Camera Control',
+          'Up to 33 hrs video playback',
+        ],
+        specs: [
+          { label: 'Display', value: '6.9" ProMotion OLED' },
+          { label: 'Chip', value: 'A19 Pro Silicon' },
+          { label: 'Camera', value: '48MP + 48MP + 12MP (10x)' },
+          { label: 'Build', value: 'Grade 5 Titanium' },
+          { label: 'Battery', value: '33 hrs video playback' },
+          { label: 'Connectivity', value: '5G + Wi-Fi 7 + USB-C 3' },
+          { label: 'Warranty', value: '1 Year Apple India' },
+        ],
+      },
+      'iphone-17-pro': {
+        name: 'iPhone 17 Pro',
+        badge: 'Pro Performance',
+        tagline: 'Pro power in a more compact design.',
+        image: 'assets/images/iphone17-pro-orange.jpg',
+        colors: ['Natural Titanium', 'Black Titanium', 'White Titanium', 'Desert Titanium'],
+        storage: [
+          { label: '128GB', price: 134900 },
+          { label: '256GB', price: 144900 },
+          { label: '512GB', price: 164900 },
+          { label: '1TB',   price: 194900 },
+        ],
+        highlights: [
+          '6.3" Super Retina XDR ProMotion OLED',
+          'A19 Pro chip with Neural Engine',
+          '48MP Fusion + 48MP Ultra-Wide cameras',
+          'Titanium chassis — premium & lightweight',
+          'Apple Intelligence built-in',
+          'Action Button & Camera Control',
+          'Up to 27 hrs video playback',
+        ],
+        specs: [
+          { label: 'Display', value: '6.3" ProMotion OLED' },
+          { label: 'Chip', value: 'A19 Pro Silicon' },
+          { label: 'Camera', value: '48MP + 48MP + 12MP (5x)' },
+          { label: 'Build', value: 'Grade 5 Titanium' },
+          { label: 'Battery', value: '27 hrs video playback' },
+          { label: 'Connectivity', value: '5G + Wi-Fi 7 + USB-C 3' },
+          { label: 'Warranty', value: '1 Year Apple India' },
+        ],
+      },
+      'iphone-17-air': {
+        name: 'iPhone 17 Air',
+        badge: 'Ultra Thin',
+        tagline: 'The slimmest, lightest iPhone ever.',
+        image: 'assets/images/iphone17-air.jpg',
+        colors: ['Sky Blue', 'Starlight', 'Black', 'Pink'],
+        storage: [
+          { label: '128GB', price: 119900 },
+          { label: '256GB', price: 139900 },
+          { label: '512GB', price: 159900 },
+        ],
+        highlights: [
+          'The thinnest iPhone ever designed',
+          'A19 Pro chip — powerful yet efficient',
+          'Aerospace-grade Titanium for minimum weight',
+          'ProMotion display — ultra smooth 120Hz',
+          'Apple Intelligence with Siri upgrade',
+          'MagSafe & USB-C connectivity',
+        ],
+        specs: [
+          { label: 'Display', value: '6.6" ProMotion OLED' },
+          { label: 'Chip', value: 'A19 Pro Silicon' },
+          { label: 'Camera', value: '48MP Fusion + Ultra-Wide' },
+          { label: 'Build', value: 'Ultra-thin Titanium' },
+          { label: 'Battery', value: '22 hrs video playback' },
+          { label: 'Connectivity', value: '5G + Wi-Fi 7 + USB-C' },
+          { label: 'Warranty', value: '1 Year Apple India' },
+        ],
+      },
+      'iphone-17': {
+        name: 'iPhone 17',
+        badge: 'All-New Standard',
+        tagline: 'All the essentials, brilliantly designed.',
+        image: 'assets/images/iphone17-blue.jpg',
+        colors: ['Ultramarine', 'Teal', 'Pink', 'White', 'Black'],
+        storage: [
+          { label: '128GB', price: 72900 },
+          { label: '256GB', price: 82900 },
+          { label: '512GB', price: 102900 },
+        ],
+        highlights: [
+          '6.1" Super Retina XDR OLED display',
+          'A19 Bionic chip — blazing fast',
+          '48MP Dual Fusion camera system',
+          'All-new anodized aluminum design',
+          'Apple Intelligence built-in',
+          'MagSafe & USB-C',
+          'Up to 22 hrs video playback',
+        ],
+        specs: [
+          { label: 'Display', value: '6.1" Super Retina OLED' },
+          { label: 'Chip', value: 'A19 Bionic' },
+          { label: 'Camera', value: '48MP + 12MP Ultra-Wide' },
+          { label: 'Build', value: 'Aluminium + Glass' },
+          { label: 'Battery', value: '22 hrs video playback' },
+          { label: 'Connectivity', value: '5G + Wi-Fi 7 + USB-C' },
+          { label: 'Warranty', value: '1 Year Apple India' },
+        ],
+      },
+      'iphone-16': {
+        name: 'iPhone 16',
+        badge: 'Best Seller',
+        tagline: 'Built for Apple Intelligence.',
+        image: 'assets/images/iphone16-pink.png',
+        colors: ['Ultramarine', 'Teal', 'Pink', 'White', 'Black'],
+        storage: [
+          { label: '128GB', price: 69900 },
+          { label: '256GB', price: 79900 },
+          { label: '512GB', price: 99900 },
+        ],
+        highlights: [
+          '6.1" Super Retina XDR OLED display',
+          'A18 chip built for Apple Intelligence',
+          '48MP Fusion camera + Camera Control button',
+          'Ceramic Shield front — twice as tough',
+          'MagSafe & USB-C',
+          'Up to 22 hrs video playback',
+        ],
+        specs: [
+          { label: 'Display', value: '6.1" Super Retina OLED' },
+          { label: 'Chip', value: 'A18 Bionic' },
+          { label: 'Camera', value: '48MP + 12MP Ultra-Wide' },
+          { label: 'Build', value: 'Aluminium + Ceramic Shield' },
+          { label: 'Battery', value: '22 hrs video playback' },
+          { label: 'Connectivity', value: '5G + Wi-Fi 7 + USB-C' },
+          { label: 'Warranty', value: '1 Year Apple India' },
+        ],
+      },
+      'iphone-15': {
+        name: 'iPhone 15',
+        badge: 'Great Value',
+        tagline: 'Dynamic Island. USB-C. Powerful cameras.',
+        image: 'assets/images/iphone15-green.png',
+        colors: ['Green', 'Yellow', 'Pink', 'Blue', 'Black'],
+        storage: [
+          { label: '128GB', price: 59900 },
+          { label: '256GB', price: 69900 },
+          { label: '512GB', price: 89900 },
+        ],
+        highlights: [
+          '6.1" Super Retina XDR OLED with Dynamic Island',
+          'A16 Bionic — still extremely fast',
+          '48MP Main camera with 2x optical zoom',
+          'USB-C connectivity for the first time',
+          'Ceramic Shield front glass',
+          'Up to 20 hrs video playback',
+        ],
+        specs: [
+          { label: 'Display', value: '6.1" OLED + Dynamic Island' },
+          { label: 'Chip', value: 'A16 Bionic' },
+          { label: 'Camera', value: '48MP + 12MP Ultra-Wide' },
+          { label: 'Build', value: 'Aluminium + Ceramic Shield' },
+          { label: 'Battery', value: '20 hrs video playback' },
+          { label: 'Connectivity', value: '5G + Wi-Fi 6E + USB-C' },
+          { label: 'Warranty', value: '1 Year Apple India' },
+        ],
+      },
+    };
+
+    let currentPhone = null;
+    let selectedStorage = 0;
+
+    function formatPrice(p) {
+      return '₹' + (p / 100).toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) * 100;
+    }
+
+    function priceStr(p) {
+      return '₹' + Number(p).toLocaleString('en-IN');
+    }
+
+    function selectStorage(idx) {
+      selectedStorage = idx;
+      const phone = currentPhone;
+      const s = phone.storage[idx];
+      document.getElementById('current-price').textContent = priceStr(s.price);
+      document.querySelectorAll('.storage-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === idx);
+      });
+      const waText = encodeURIComponent(`Hi PLANET KSD, I am interested in the ${phone.name} ${s.label}. Please share availability and best price.`);
+      document.getElementById('wa-cta-btn').href = `https://wa.me/919697771771?text=${waText}`;
+    }
+
+    function render(phoneId) {
+      const phone = PHONES[phoneId];
+      if (!phone) {
+        document.getElementById('detail-container').innerHTML = `<div class="text-center py-20"><p class="text-appleGray">Phone not found.</p><a href="index.html" class="text-gold mt-4 block">Go back</a></div>`;
+        return;
+      }
+      currentPhone = phone;
+      document.title = `${phone.name} — PLANET KSD`;
+
+      const storageHTML = phone.storage.map((s, i) => `<button class="storage-btn${i===0?' active':''}" onclick="selectStorage(${i})">${s.label}</button>`).join('');
+
+      const highlightsHTML = phone.highlights.map(h => `<li class="flex items-start gap-2 text-sm text-gray-300"><span class="text-gold mt-0.5">✓</span><span>${h}</span></li>`).join('');
+
+      const specsHTML = phone.specs.map(s => `<div class="spec-row"><span class="text-appleGray text-sm">${s.label}</span><span class="text-white text-sm font-medium">${s.value}</span></div>`).join('');
+
+      const waText = encodeURIComponent(`Hi PLANET KSD, I am interested in the ${phone.name} ${phone.storage[0].label}. Please share availability and best price.`);
+
+      document.getElementById('detail-container').innerHTML = `
+        <!-- Badge -->
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-gold/15 text-gold border border-gold/30">${phone.badge}</span>
+          <span class="text-xs text-emerald-400 font-semibold">● In Stock · Kasaragod</span>
+        </div>
+
+        <!-- Phone Image -->
+        <div class="flex justify-center bg-gradient-to-b from-white/5 to-transparent rounded-2xl mb-6 py-6 px-4">
+          <img src="${phone.image}" alt="${phone.name}" class="detail-img drop-shadow-2xl" />
+        </div>
+
+        <!-- Name & Tagline -->
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white mb-1">${phone.name}</h1>
+        <p class="text-appleGray text-sm mb-6">${phone.tagline}</p>
+
+        <!-- Storage Selection -->
+        <div class="mb-6">
+          <p class="text-xs text-appleGray uppercase tracking-wider font-semibold mb-3">Storage</p>
+          <div class="flex flex-wrap gap-2">${storageHTML}</div>
+        </div>
+
+        <!-- Price -->
+        <div class="flex items-baseline gap-3 mb-6 p-4 rounded-2xl bg-white/5 border border-white/8">
+          <span id="current-price" class="text-3xl font-black text-white">${priceStr(phone.storage[0].price)}</span>
+          <span class="text-appleGray text-sm">incl. GST + 1yr warranty</span>
+        </div>
+
+        <!-- WhatsApp CTA -->
+        <a id="wa-inline-btn" href="https://wa.me/919697771771?text=${waText}" target="_blank" class="wa-btn mb-8">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.813h.005c3.179 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.773-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.356.102.174.454.748.974 1.211.67.597 1.233.782 1.407.869.173.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/></svg>
+          Enquire on WhatsApp
+        </a>
+
+        <!-- Highlights -->
+        <div class="mb-8">
+          <h2 class="text-lg font-bold text-white mb-4">Highlights</h2>
+          <ul class="space-y-3">${highlightsHTML}</ul>
+        </div>
+
+        <!-- Specs Table -->
+        <div class="mb-8">
+          <h2 class="text-lg font-bold text-white mb-4">Specifications</h2>
+          <div class="rounded-2xl bg-white/4 border border-white/8 overflow-hidden px-4">${specsHTML}</div>
+        </div>
+
+        <!-- Store Info -->
+        <div class="rounded-2xl bg-gold/8 border border-gold/20 p-5 mb-4">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-gold text-xl">📍</span>
+            <span class="font-bold text-white">PLANET KSD — Gulf Bazar, Kasaragod</span>
+          </div>
+          <p class="text-appleGray text-sm ml-9">Walk in or WhatsApp us for instant price check, exchange offers, and EMI options.</p>
+          <a href="tel:+919697771771" class="mt-3 ml-9 text-gold font-semibold text-sm flex items-center gap-1 hover:underline">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z"/></svg>
+            +91 96977 71771
+          </a>
+        </div>
+      `;
+
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('bottom-cta').classList.remove('hidden');
+      document.getElementById('wa-cta-btn').href = `https://wa.me/919697771771?text=${waText}`;
+    }
+
+    // Read phone ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const phoneId = params.get('phone') || 'iphone-17-pro-max';
+    render(phoneId);
+  </script>
+</body>
+</html>

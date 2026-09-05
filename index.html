@@ -145,141 +145,57 @@
         </div>
       </div>
 
-      <!-- 3 Simplified Luxury Product Cards Grid -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
-        
+      <!-- iPhone 17 Series — Compact 2x2 Grid (Mobile) / 4-col (Desktop) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+
         <!-- CARD 1: iPhone 17 Pro Max -->
-        <div id="card-iphone-17-pro-max" class="glass-card p-3 sm:p-7 flex flex-col justify-between group hover:border-gold/40 transition-all duration-300">
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-17-pro-max'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+          <!-- Phone Image -->
+          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+            <img src="assets/images/iphone17-promax-silver.png" alt="iPhone 17 Pro Max" class="h-28 sm:h-40 object-contain group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <!-- Name & Price -->
           <div>
-            <!-- Top Badges & Wishlist -->
-            <div class="flex items-center justify-between mb-4">
-              <span class="badge-gold">Top Flagship</span>
-              <button onclick="toggleWishlist('iphone-17-pro-max', this)" class="btn-icon-glass w-8 h-8" title="Save to Wishlist">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                </svg>
-              </button>
-            </div>
-
-            <!-- Floating Image -->
-            <div class="product-card-img-wrap cursor-pointer" onclick="window.location.href='iphones.html#iphone-17-pro-max'">
-              <img src="assets/images/iphone17-promax-silver.png" alt="iPhone 17 Pro Max" class="product-card-img group-hover:scale-105 transition-transform duration-500" />
-            </div>
-
-            <!-- Title & Simple Tagline (no clutter) -->
-            <div class="mt-6 mb-4">
-              <h3 class="text-base sm:text-xl font-bold text-white group-hover:text-gold transition">iPhone 17 Pro Max</h3>
-              <p class="text-[10px] sm:text-xs text-appleMuted mt-1 leading-tight">6.9" ProMotion • Grade 5 Titanium • A19 Pro Silicon</p>
-            </div>
+            <p class="text-[10px] text-gold font-bold uppercase tracking-wider mb-1">Top Flagship</p>
+            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-gold transition leading-tight">iPhone 17 Pro Max</h3>
+            <p class="text-xs text-appleGray mt-1 font-semibold">from ₹1,49,900</p>
           </div>
 
-          <!-- Price & Clean Action Buttons -->
-          <div class="pt-4 border-t border-white/10">
-            <div class="flex items-baseline justify-between mb-4">
-              <div>
-                <span class="product-price text-lg sm:text-2xl font-black text-white">₹1,49,900</span>
-              </div>
-            </div>
-
-            <div class="flex flex-col sm:grid sm:grid-cols-2 gap-2 sm:gap-3">
-              <a href="iphones.html#iphone-17-pro-max" class="btn-gold py-2.5 text-xs font-semibold text-center">
-                View Product
-              </a>
-              <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20the%20iPhone%2017%20Pro%20Max" target="_blank" class="btn-glass py-2.5 text-xs font-medium text-center flex items-center justify-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.813h.005c3.179 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.773-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.356.102.174.454.748.974 1.211.67.597 1.233.782 1.407.869.173.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"></path>
-                </svg>
-                WhatsApp
-              </a>
-            </div>
-          </div>
         </div>
 
         <!-- CARD 2: iPhone 17 Pro -->
-        <div id="card-iphone-17-pro" class="glass-card p-3 sm:p-7 flex flex-col justify-between group hover:border-gold/40 transition-all duration-300">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="badge-gold">Pro Performance</span>
-              <button onclick="toggleWishlist('iphone-17-pro', this)" class="btn-icon-glass w-8 h-8" title="Save to Wishlist">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                </svg>
-              </button>
-            </div>
-
-            <div class="product-card-img-wrap cursor-pointer" onclick="openQuickView('iphone-17-pro')">
-              <img src="assets/images/iphone17-pro-orange.jpg" alt="iPhone 17 Pro" class="product-card-img group-hover:scale-105 transition-transform duration-500" />
-            </div>
-
-            <div class="mt-6 mb-4">
-              <h3 class="text-base sm:text-xl font-bold text-white group-hover:text-gold transition">iPhone 17 Pro</h3>
-              <p class="text-[10px] sm:text-xs text-appleMuted mt-1 leading-tight">6.3" ProMotion • 48MP Optics • Titanium Chassis</p>
-            </div>
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-17-pro'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+            <img src="assets/images/iphone17-pro-orange.jpg" alt="iPhone 17 Pro" class="h-28 sm:h-40 object-contain group-hover:scale-105 transition-transform duration-500" />
           </div>
-
-          <div class="pt-4 border-t border-white/10">
-            <div class="flex items-baseline justify-between mb-4">
-              <div>
-                <span class="product-price text-lg sm:text-2xl font-black text-white">₹1,34,900</span>
-              </div>
-              <span class="badge-gray text-[10px]">In Stock KSD</span>
-            </div>
-
-            <div class="flex flex-col sm:grid sm:grid-cols-2 gap-2 sm:gap-3">
-              <button onclick="addToCart('iphone-17-pro')" class="btn-gold py-2.5 text-xs font-semibold">
-                Add to Cart
-              </button>
-              <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20the%20iPhone%2017%20Pro" target="_blank" class="btn-glass py-2.5 text-xs font-medium text-center flex items-center justify-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.813h.005c3.179 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.773-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.356.102.174.454.748.974 1.211.67.597 1.233.782 1.407.869.173.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"></path>
-                </svg>
-                WhatsApp
-              </a>
-            </div>
+          <div>
+            <p class="text-[10px] text-gold font-bold uppercase tracking-wider mb-1">Pro Performance</p>
+            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-gold transition leading-tight">iPhone 17 Pro</h3>
+            <p class="text-xs text-appleGray mt-1 font-semibold">from ₹1,34,900</p>
           </div>
         </div>
 
-        <!-- CARD 3: iPhone 17 -->
-        <div id="card-iphone-17" class="glass-card p-3 sm:p-7 flex flex-col justify-between group hover:border-gold/40 transition-all duration-300">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="badge-gold">All-New Standard</span>
-              <button onclick="toggleWishlist('iphone-17', this)" class="btn-icon-glass w-8 h-8" title="Save to Wishlist">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                </svg>
-              </button>
-            </div>
-
-            <div class="product-card-img-wrap cursor-pointer" onclick="openQuickView('iphone-17')">
-              <img src="assets/images/iphone17-blue.jpg" alt="iPhone 17" class="product-card-img group-hover:scale-105 transition-transform duration-500" />
-            </div>
-
-            <div class="mt-6 mb-4">
-              <h3 class="text-base sm:text-xl font-bold text-white group-hover:text-gold transition">iPhone 17</h3>
-              <p class="text-[10px] sm:text-xs text-appleMuted mt-1 leading-tight">6.1" OLED • A19 Bionic • 48MP Dual Fusion Camera</p>
-            </div>
+        <!-- CARD 3: iPhone 17 Air -->
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-17-air'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+            <img src="assets/images/iphone17-air.jpg" alt="iPhone 17 Air" class="h-28 sm:h-40 object-contain group-hover:scale-105 transition-transform duration-500" />
           </div>
+          <div>
+            <p class="text-[10px] text-gold font-bold uppercase tracking-wider mb-1">Ultra Thin</p>
+            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-gold transition leading-tight">iPhone 17 Air</h3>
+            <p class="text-xs text-appleGray mt-1 font-semibold">from ₹1,19,900</p>
+          </div>
+        </div>
 
-          <div class="pt-4 border-t border-white/10">
-            <div class="flex items-baseline justify-between mb-4">
-              <div>
-                <span class="product-price text-lg sm:text-2xl font-black text-white">₹72,900</span>
-              </div>
-              <span class="badge-gray text-[10px]">Free 20W Charger</span>
-            </div>
-
-            <div class="flex flex-col sm:grid sm:grid-cols-2 gap-2 sm:gap-3">
-              <button onclick="addToCart('iphone-17')" class="btn-gold py-2.5 text-xs font-semibold">
-                Add to Cart
-              </button>
-              <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20the%20iPhone%2017" target="_blank" class="btn-glass py-2.5 text-xs font-medium text-center flex items-center justify-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.813h.005c3.179 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.773-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.356.102.174.454.748.974 1.211.67.597 1.233.782 1.407.869.173.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"></path>
-                </svg>
-                WhatsApp
-              </a>
-            </div>
+        <!-- CARD 4: iPhone 17 -->
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-17'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+            <img src="assets/images/iphone17-blue.jpg" alt="iPhone 17" class="h-28 sm:h-40 object-contain group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div>
+            <p class="text-[10px] text-gold font-bold uppercase tracking-wider mb-1">All-New Standard</p>
+            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-gold transition leading-tight">iPhone 17</h3>
+            <p class="text-xs text-appleGray mt-1 font-semibold">from ₹72,900</p>
           </div>
         </div>
 
