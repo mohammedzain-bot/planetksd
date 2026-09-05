@@ -5,6 +5,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+/* Prevents horizontal wobble on Android without breaking position:sticky */
+html {
+  overflow-x: clip;
+}
+
 :root {
   --color-bg: #050505;
   --color-bg-alt: #0a0a0d;
