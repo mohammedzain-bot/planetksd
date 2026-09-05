@@ -5,11 +5,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* Prevents horizontal wobble on Android without breaking position:sticky */
-html {
-  overflow-x: clip;
-}
-
 :root {
   --color-bg: #050505;
   --color-bg-alt: #0a0a0d;
@@ -593,7 +588,6 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #050505;
-  z-index: 10;
 }
 
 #hero-sequence-canvas {
@@ -721,26 +715,21 @@ body {
 }
 
 @media (max-width: 768px) {
+  /* Shorter scroll track so animation completes without excessive scrolling */
   .hero-scroll-track {
-    height: 200vh;
-    background-color: #050505;
+    height: 300vh;
   }
 
-  /* Crop out the black void: make stage 50vh tall but centered */
+  /* Use small viewport height — stable even when browser chrome shows/hides */
   .hero-sticky-stage {
-    height: 50vh !important;
-    top: 25vh !important;
-    overflow: hidden;
+    height: 100svh;
+    height: 100vh; /* fallback */
   }
 
-  /* Canvas internal render is 100vh. We offset it so it centers inside the 50vh container.
-     The container's overflow:hidden perfectly crops the 25vh top/bottom black bars! */
+  /* Canvas fills the full mobile screen cleanly */
   #hero-sequence-canvas {
-    width: 100vw;
-    height: 100vh !important;
-    position: absolute !important;
-    top: -25vh !important;
-    max-height: none;
+    width: 100%;
+    height: 100%;
   }
 
   .hero-progress-container {

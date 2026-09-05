@@ -623,13 +623,18 @@ function initHeroCanvasSequence() {
     }
 
     if (img && img.complete && img.naturalWidth > 0) {
-      const isMobile = window.innerWidth <= 768;
+      // Scale to fit within the canvas size without cropping, then zoom out slightly (85%)
       const baseScale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
+      // On mobile (portrait), use a larger scale so the phone fills the screen properly
+      const isMobile = window.innerWidth <= 768;
       const scale = baseScale * (isMobile ? 0.95 : 0.82);
       const nw = Math.round(img.naturalWidth * scale);
       const nh = Math.round(img.naturalHeight * scale);
+      
+      // Center the image
       const nx = Math.round((cw - nw) / 2);
       const ny = Math.round((ch - nh) / 2);
+
       ctx.drawImage(img, nx, ny, nw, nh);
     }
   }
@@ -697,13 +702,14 @@ function initHeroCanvasSequence() {
 
     // Draw primary frame
     if (img && img.complete && img.naturalWidth > 0) {
-      const isMobile = window.innerWidth <= 768;
       const baseScale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
+      const isMobile = window.innerWidth <= 768;
       const scale = baseScale * (isMobile ? 0.95 : 0.82);
       const nw = Math.round(img.naturalWidth * scale);
       const nh = Math.round(img.naturalHeight * scale);
       const nx = Math.round((cw - nw) / 2);
       const ny = Math.round((ch - nh) / 2);
+
       ctx.drawImage(img, nx, ny, nw, nh);
     }
   }
