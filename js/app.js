@@ -623,16 +623,9 @@ function initHeroCanvasSequence() {
     }
 
     if (img && img.complete && img.naturalWidth > 0) {
+      const baseScale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
       const isMobile = window.innerWidth <= 768;
-      let scale;
-      if (isMobile) {
-        // Zoom in to completely fill the vertical black space on portrait screens
-        const maxScale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
-        scale = maxScale * 0.95; // Fills 95% of screen height
-      } else {
-        const baseScale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
-        scale = baseScale * 0.82;
-      }
+      const scale = baseScale * (isMobile ? 0.95 : 0.82);
       const nw = Math.round(img.naturalWidth * scale);
       const nh = Math.round(img.naturalHeight * scale);
       
@@ -707,15 +700,9 @@ function initHeroCanvasSequence() {
 
     // Draw primary frame
     if (img && img.complete && img.naturalWidth > 0) {
+      const baseScale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
       const isMobile = window.innerWidth <= 768;
-      let scale;
-      if (isMobile) {
-        const maxScale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
-        scale = maxScale * 0.95;
-      } else {
-        const baseScale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
-        scale = baseScale * 0.82;
-      }
+      const scale = baseScale * (isMobile ? 0.95 : 0.82);
       const nw = Math.round(img.naturalWidth * scale);
       const nh = Math.round(img.naturalHeight * scale);
       const nx = Math.round((cw - nw) / 2);
