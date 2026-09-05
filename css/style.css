@@ -1,0 +1,751 @@
+/* ==========================================================================
+   PLANET KSD — Luxury Dark Apple Design System
+   Aesthetic: Apple Store + High-End Showroom (#050505 & #C8A36A)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --color-bg: #050505;
+  --color-bg-alt: #0a0a0d;
+  --color-surface: #0d0d10;
+  --color-surface-hover: #141418;
+  --color-surface-card: #0e0e12;
+  
+  --color-gold: #C8A36A;
+  --color-gold-light: #DFBA7F;
+  --color-gold-dark: #A8834A;
+  --color-gold-glow: rgba(200, 163, 106, 0.22);
+  --color-gold-subtle: rgba(200, 163, 106, 0.08);
+
+  --color-text-white: #FFFFFF;
+  --color-text-secondary: #A1A1A6;
+  --color-text-muted: #6E6E73;
+  --color-text-subtle: #48484A;
+
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-glass-hover: rgba(255, 255, 255, 0.16);
+  --border-gold: rgba(200, 163, 106, 0.35);
+  --border-gold-glow: rgba(200, 163, 106, 0.6);
+
+  --radius-card: 24px;
+  --radius-button: 9999px;
+  --radius-pill: 12px;
+
+  --font-apple: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+  
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--color-bg);
+  color: var(--color-text-white);
+  font-family: var(--font-apple);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-white);
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Luxury Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c1c20;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Atmospheric Spotlights */
+.spotlight-hero {
+  position: absolute;
+  top: -100px;
+  right: 5%;
+  width: 750px;
+  height: 750px;
+  background: radial-gradient(circle, rgba(200, 163, 106, 0.16) 0%, rgba(200, 163, 106, 0.04) 45%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.spotlight-center {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(200, 163, 106, 0.08) 0%, transparent 65%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glassmorphism Classes */
+.glass-nav {
+  background: rgba(5, 5, 5, 0.82);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.glass-nav-slim {
+  background: rgba(5, 5, 5, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-nav-slim.scrolled {
+  background: rgba(5, 5, 5, 0.92);
+  border-bottom-color: rgba(200, 163, 106, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.9);
+}
+
+.glass-card {
+  background: rgba(14, 14, 18, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-card);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.9), 0 0 35px -5px var(--color-gold-glow);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(12px);
+  transition: var(--transition-fast);
+}
+
+.glass-pill:hover,
+.glass-pill.active {
+  background: rgba(200, 163, 106, 0.12);
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+}
+
+/* Gold Accents & Highlights */
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-gold-light {
+  color: var(--color-gold-light);
+}
+
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+.border-gold {
+  border-color: var(--color-gold);
+}
+
+/* Luxury Buttons */
+.btn-gold {
+  background: linear-gradient(135deg, #DFBA7F 0%, #C8A36A 50%, #B38C52 100%);
+  color: #050505;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-button);
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 20px -2px rgba(200, 163, 106, 0.35);
+  text-decoration: none;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px 0 rgba(200, 163, 106, 0.55);
+  filter: brightness(1.08);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-white);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-button);
+  padding: 12px 26px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--border-gold);
+  color: var(--color-gold-light);
+  transform: translateY(-2px);
+}
+
+.btn-icon-glass {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-white);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.btn-icon-glass:hover {
+  background: rgba(200, 163, 106, 0.15);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  transform: scale(1.06);
+}
+
+/* Floating Badges */
+.badge-gold {
+  background: rgba(200, 163, 106, 0.12);
+  border: 1px solid rgba(200, 163, 106, 0.3);
+  color: var(--color-gold-light);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-gray {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-glass);
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+/* Interactive Color Dots */
+.color-dot-ring {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  padding: 2px;
+  border: 1.5px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.color-dot-ring.active {
+  border-color: var(--color-gold);
+  transform: scale(1.15);
+}
+
+.color-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Interactive Storage Chips */
+.storage-chip {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.storage-chip:hover {
+  border-color: rgba(200, 163, 106, 0.5);
+  color: #fff;
+}
+
+.storage-chip.active {
+  background: rgba(200, 163, 106, 0.15);
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(200, 163, 106, 0.2);
+}
+
+/* Floating Image Hover Dynamics */
+.product-card-img-wrap {
+  position: relative;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+}
+
+.product-card-img {
+  max-height: 220px;
+  max-width: 90%;
+  object-fit: contain;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.7));
+}
+
+.glass-card:hover .product-card-img {
+  transform: translateY(-8px) scale(1.05);
+  filter: drop-shadow(0 25px 35px rgba(200, 163, 106, 0.25));
+}
+
+/* Slide-out Cart Drawer */
+.cart-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.cart-drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -480px;
+  width: 100%;
+  max-width: 440px;
+  height: 100vh;
+  background: #0b0b0e;
+  border-left: 1px solid var(--border-glass);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.9);
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-box {
+  background: #0f0f13;
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-card);
+  width: 100%;
+  max-width: 840px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(200, 163, 106, 0.2);
+  transform: translateY(20px) scale(0.96);
+  transition: var(--transition-smooth);
+}
+
+.modal-overlay.open .modal-box {
+  transform: translateY(0) scale(1);
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.toast {
+  background: rgba(18, 18, 22, 0.95);
+  border: 1px solid var(--color-gold);
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 20px var(--color-gold-glow);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: toastIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: auto;
+}
+
+@keyframes toastIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Floating WhatsApp Concierge Button */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(14, 14, 18, 0.85);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  padding: 10px 18px;
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(37, 211, 102, 0.18);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-4px);
+  border-color: #25D366;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 30px rgba(37, 211, 102, 0.4);
+}
+
+.floating-whatsapp .wa-icon {
+  color: #25D366;
+  width: 20px;
+  height: 20px;
+}
+
+/* Gold Outline Icons styling */
+.gold-icon-box {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: rgba(200, 163, 106, 0.08);
+  border: 1px solid rgba(200, 163, 106, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover .gold-icon-box {
+  background: rgba(200, 163, 106, 0.16);
+  border-color: var(--color-gold);
+  transform: scale(1.08);
+  box-shadow: 0 0 24px rgba(200, 163, 106, 0.3);
+}
+
+/* Animations */
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: subtleFloat 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.85; }
+}
+
+.animate-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Responsive Utilities */
+@media (max-width: 1024px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .cart-drawer {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --radius-card: 20px;
+  }
+  .floating-whatsapp {
+    bottom: 20px;
+    left: 20px;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+  .toast-container {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+  }
+}
+
+/* ==========================================================================
+   Apple-Style Canvas Video Frame Scroll Sequence & Kinetic Feature Overlays
+   ========================================================================== */
+.hero-scroll-track {
+  position: relative;
+  height: 480vh;
+  background-color: #050505;
+  margin-top: -1px;
+}
+
+.hero-sticky-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #050505;
+}
+
+#hero-sequence-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  object-fit: contain;
+  image-rendering: auto;
+  filter: contrast(1.2) brightness(1.03) saturate(1.15);
+  -webkit-filter: contrast(1.2) brightness(1.03) saturate(1.15);
+  will-change: contents;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.hero-giant-brand-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(4.5rem, 18vw, 16.5rem);
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(200, 163, 106, 0.35);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(200, 163, 106, 0.22) 50%, rgba(5, 5, 5, 0.4) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  pointer-events: none;
+  z-index: 5;
+  user-select: none;
+  will-change: transform, opacity;
+  transition: transform 0.12s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.hero-scroll-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(28px) scale(0.96);
+  transition: opacity 0.28s ease-out, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.hero-scroll-overlay a,
+.hero-scroll-overlay button {
+  pointer-events: auto;
+}
+
+.hero-scroll-overlay.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 40%, rgba(5, 5, 5, 0.75) 85%, #050505 100%),
+              linear-gradient(to bottom, rgba(5, 5, 5, 0.6) 0%, transparent 15%, transparent 85%, #050505 100%);
+}
+
+.hero-ambient-spotlight {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 750px;
+  background: radial-gradient(circle, rgba(200, 163, 106, 0.14) 0%, rgba(200, 163, 106, 0.02) 50%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-progress-container {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(14, 14, 18, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 1px solid var(--border-glass);
+}
+
+.hero-progress-bar-track {
+  width: 140px;
+  height: 4px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.hero-progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #DFBA7F, #C8A36A);
+  border-radius: 9999px;
+  transition: width 0.08s ease-out;
+}
+
+@media (max-width: 768px) {
+  /* Shorter scroll track so animation completes without excessive scrolling */
+  .hero-scroll-track {
+    height: 300vh;
+  }
+
+  /* Use small viewport height — stable even when browser chrome shows/hides */
+  .hero-sticky-stage {
+    height: 100svh;
+    height: 100vh; /* fallback */
+  }
+
+  /* Canvas fills the full mobile screen cleanly */
+  #hero-sequence-canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-progress-container {
+    bottom: 16px;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+  }
+  .hero-progress-bar-track {
+    width: 90px;
+  }
+
+  /* Lighten vignette on mobile so the image is more visible on small screens */
+  .hero-vignette {
+    background: radial-gradient(circle at center, transparent 45%, rgba(5, 5, 5, 0.55) 85%, #050505 100%),
+                linear-gradient(to bottom, rgba(5, 5, 5, 0.4) 0%, transparent 12%, transparent 88%, #050505 100%);
+  }
+}
+
+

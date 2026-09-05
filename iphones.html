@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All iPhone Models | PLANET KSD â€” Apple Premium Store Kasaragod</title>
+  <meta name="description" content="Explore the complete iPhone collection at PLANET KSD Kasaragod. Official Apple India sealed units, 0% No-Cost EMI, and direct WhatsApp ordering." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            blackMatte: '#050505',
+            appleCard: '#0E0E12',
+            gold: '#C8A36A',
+            goldLight: '#DFBA7F',
+            goldDark: '#9C7A44',
+            appleGray: '#86868B',
+            appleMuted: '#6E6E73',
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#050505] text-white selection:bg-[#C8A36A] selection:text-black min-h-screen flex flex-col justify-between">
+
+  <!-- =========================================================================
+       1. SLIM MINIMALIST LUXURY GLASS NAVBAR
+       ========================================================================= -->
+  <nav id="main-navbar" class="sticky top-0 z-50 glass-nav-slim">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+      
+      <!-- Brand: Apple Icon + PLANET KSD -->
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <img src="assets/images/planet-logo.jpg" alt="Planet KSD Logo" class="h-7 w-7 object-contain rounded-md shadow-sm border border-white/5 transition-transform duration-300 group-hover:scale-105" />
+        <span class="text-sm font-bold tracking-wider text-white">
+          PLANET <span class="text-gold">KSD</span>
+        </span>
+      </a>
+
+      <!-- Quick Back to Home & Links -->
+      <div class="flex items-center gap-6 text-[12px] font-medium tracking-wide text-appleGray">
+        <a href="index.html" class="hover:text-gold transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Back to Home
+        </a>
+        <a href="index.html#showroom" class="hidden md:inline hover:text-white transition">Kasaragod Store</a>
+      </div>
+
+      <!-- Right Contact -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20am%20browsing%20all%20iPhone%20models%20and%20want%20to%20inquire" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 hover:bg-emerald-500/20 transition">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>WhatsApp Concierge</span>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       2. CATALOG HEADER & SEARCH
+       ========================================================================= -->
+  <header class="relative pt-12 pb-8 border-b border-white/5 bg-[#08080a]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 badge-gold mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+        <span>PLANET KSD â€¢ Authorized Kerala Stock</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        All iPhone Models
+      </h1>
+      <p class="text-sm sm:text-base text-appleGray mt-3 max-w-2xl mx-auto">
+        Explore every generation from the flagship iPhone 17 Pro Max to certified value models. Official sealed units with Apple India Warranty, 0% EMI, and Kasaragod showroom pickup.
+      </p>
+
+      <!-- Search & Filter Bar -->
+      <div class="mt-8 max-w-xl mx-auto flex flex-col sm:flex-row gap-3 items-center">
+        <div class="relative w-full">
+          <input 
+            type="text" 
+            id="phone-search-input" 
+            placeholder="Search by model (e.g. 17 Pro, 16, 256GB)..." 
+            oninput="filterPhones()"
+            class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-sm text-white placeholder-appleMuted focus:outline-none focus:border-gold transition"
+          />
+          <svg class="w-4 h-4 text-appleMuted absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Interactive Category Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+        <button onclick="setCategory('all', this)" class="category-filter-btn px-4 py-1.5 rounded-full text-xs font-medium border border-gold bg-gold/15 text-gold transition">
+          All Models
+        </button>
+        <button onclick="setCategory('17', this)" class="category-filter-btn px-4 py-1.5 rounded-full text-xs font-medium border border-white/10 text-appleGray hover:text-white transition">
+          iPhone 17 Series
+        </button>
+        <button onclick="setCategory('16', this)" class="category-filter-btn px-4 py-1.5 rounded-full text-xs font-medium border border-white/10 text-appleGray hover:text-white transition">
+          iPhone 16 Series
+        </button>
+        <button onclick="setCategory('15', this)" class="category-filter-btn px-4 py-1.5 rounded-full text-xs font-medium border border-white/10 text-appleGray hover:text-white transition">
+          iPhone 15 Series
+        </button>
+        <button onclick="setCategory('value', this)" class="category-filter-btn px-4 py-1.5 rounded-full text-xs font-medium border border-white/10 text-appleGray hover:text-white transition">
+          Certified Value Models
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       3. ALL IPHONE PHONES GRID (FULL DETAILS)
+       ========================================================================= -->
+  <main class="py-16 bg-[#050505] flex-grow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/5">
+        <span id="results-count" class="text-xs text-appleMuted font-medium uppercase tracking-wider">Showing 8 Products</span>
+        <div class="flex items-center gap-2 text-xs text-gold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>Available at Gulf Bazar, Kasaragod</span>
+        </div>
+      </div>
+
+      <div id="phones-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- iPhone 17 Pro Max -->
+        <div id="iphone-17-pro-max" class="phone-item glass-card p-6 flex flex-col justify-between group" data-category="17" data-name="iphone 17 pro max">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge-gold">Ultimate Flagship</span>
+              <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">In Stock Kasaragod</span>
+            </div>
+
+            <div class="product-card-img-wrap">
+              <img src="assets/images/iphone17-promax-silver.png" alt="iPhone 17 Pro Max" class="product-card-img" />
+            </div>
+
+            <div class="mt-6 mb-3">
+              <h3 class="text-xl font-bold text-white group-hover:text-gold transition">iPhone 17 Pro Max</h3>
+              <p class="text-xs text-appleMuted mt-1">A19 Pro Silicon • 6.9" ProMotion OLED • 48MP Quad-Prism 10x</p>
+            </div>
+
+            <!-- Features -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-white">Titanium</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-gold">10x Optical</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-appleGray">2TB Storage</span>
+            </div>
+
+            <!-- Storage Options (Interactive) -->
+            <div class="mb-4">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Storage</label>
+              <div class="flex gap-2 flex-wrap">
+                <button onclick="updatePrice('ip17promax', 149900, this)" class="storage-btn-ip17promax px-2.5 py-1 rounded-lg text-xs bg-gold/15 border border-gold text-gold font-medium">256GB</button>
+                <button onclick="updatePrice('ip17promax', 169900, this)" class="storage-btn-ip17promax px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">512GB</button>
+                <button onclick="updatePrice('ip17promax', 189900, this)" class="storage-btn-ip17promax px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">1TB</button>
+                <button onclick="updatePrice('ip17promax', 229900, this)" class="storage-btn-ip17promax px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">2TB</button>
+              </div>
+            </div>
+
+            <!-- Key Features List -->
+            <div class="mb-6">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Highlights</label>
+              <ul class="text-xs text-appleGray space-y-1">
+                <li>• Massive 6.9" Super Retina XDR display</li>
+                <li>• New 48MP camera with 10x optical zoom capability</li>
+                <li>• A19 Pro chip for unprecedented gaming and pro workflows</li>
+                <li>• Next-gen aerospace-grade titanium design</li>
+                <li>• Astonishing battery life with all-new thermal architecture</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span id="price-ip17promax" class="text-2xl font-black text-white">₹1,49,900</span>
+              </div>
+              <span class="badge-gray text-[10px]">Apple India Sealed</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20iPhone%2017%20Pro%20Max" target="_blank" class="btn-gold py-2.5 text-xs text-center font-semibold">
+                Buy via WhatsApp
+              </a>
+              <a href="tel:+919697771771" class="btn-glass py-2.5 text-xs text-center font-medium">
+                Call Showroom
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- iPhone 17 Pro -->
+        <div class="phone-item glass-card p-6 flex flex-col justify-between group" data-category="17" data-name="iphone 17 pro">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge-gold">Pro Performance</span>
+              <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">In Stock Kasaragod</span>
+            </div>
+
+            <div class="product-card-img-wrap">
+              <img src="assets/images/iphone17-pro-orange.jpg" alt="iPhone 17 Pro" class="product-card-img" />
+            </div>
+
+            <div class="mt-6 mb-3">
+              <h3 class="text-xl font-bold text-white group-hover:text-gold transition">iPhone 17 Pro</h3>
+              <p class="text-xs text-appleMuted mt-1">A19 Pro Silicon • 6.3" ProMotion OLED • 48MP Triple Lens</p>
+            </div>
+
+            <!-- Features -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-white">Titanium</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-gold">Action Button</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-appleGray">Studio Audio</span>
+            </div>
+
+            <!-- Storage Options (Interactive) -->
+            <div class="mb-4">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Storage</label>
+              <div class="flex gap-2">
+                <button onclick="updatePrice('ip17pro', 134900, this)" class="storage-btn-ip17pro px-2.5 py-1 rounded-lg text-xs bg-gold/15 border border-gold text-gold font-medium">256GB</button>
+                <button onclick="updatePrice('ip17pro', 154900, this)" class="storage-btn-ip17pro px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">512GB</button>
+                <button onclick="updatePrice('ip17pro', 164900, this)" class="storage-btn-ip17pro px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">1TB</button>
+              </div>
+            </div>
+
+            <!-- Key Features List -->
+            <div class="mb-6">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Highlights</label>
+              <ul class="text-xs text-appleGray space-y-1">
+                <li>• Forged in Titanium for strength and lightness</li>
+                <li>• 48MP Main camera with advanced Triple Lens system</li>
+                <li>• A19 Pro chip delivers mind-blowing performance</li>
+                <li>• Super Retina XDR display with ProMotion</li>
+                <li>• Customizable Action Button for instant shortcuts</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span id="price-ip17pro" class="text-2xl font-black text-white">₹1,34,900</span>
+              </div>
+              <span class="badge-gray text-[10px]">Apple India Sealed</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20iPhone%2017%20Pro" target="_blank" class="btn-gold py-2.5 text-xs text-center font-semibold">
+                Buy via WhatsApp
+              </a>
+              <a href="tel:+919697771771" class="btn-glass py-2.5 text-xs text-center font-medium">
+                Call Showroom
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- iPhone 17 Air -->
+        <div class="phone-item glass-card p-6 flex flex-col justify-between group" data-category="17" data-name="iphone 17 air">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge-gold">Ultra Thin</span>
+              <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">Coming Soon</span>
+            </div>
+
+            <div class="product-card-img-wrap">
+              <img src="assets/images/iphone17-air.jpg" alt="iPhone 17 Air" class="product-card-img" />
+            </div>
+
+            <div class="mt-6 mb-3">
+              <h3 class="text-xl font-bold text-white group-hover:text-gold transition">iPhone 17 Air</h3>
+              <p class="text-xs text-appleMuted mt-1">Impossibly Thin • ProMotion Display • Ultra-light Titanium</p>
+            </div>
+
+            <!-- Features -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-white">Slimmest Design</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-gold">Titanium</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-appleGray">A19 Pro Chip</span>
+            </div>
+
+            <!-- Storage Options (Interactive) -->
+            <div class="mb-4">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Storage</label>
+              <div class="flex gap-2">
+                <button onclick="updatePrice('ip17air', 119900, this)" class="storage-btn-ip17air px-2.5 py-1 rounded-lg text-xs bg-gold/15 border border-gold text-gold font-medium">128GB</button>
+                <button onclick="updatePrice('ip17air', 139900, this)" class="storage-btn-ip17air px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">256GB</button>
+                <button onclick="updatePrice('ip17air', 159900, this)" class="storage-btn-ip17air px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">512GB</button>
+              </div>
+            </div>
+
+            <!-- Key Features List -->
+            <div class="mb-6">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Highlights</label>
+              <ul class="text-xs text-appleGray space-y-1">
+                <li>• Impossibly thin profile — the lightest iPhone ever</li>
+                <li>• Advanced Titanium chassis for maximum durability</li>
+                <li>• A19 Pro chip for unparalleled performance</li>
+                <li>• True-to-life ProMotion display</li>
+                <li>• Professional camera array in an ultra-sleek form factor</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span id="price-ip17air" class="text-2xl font-black text-white">₹1,19,900</span>
+              </div>
+              <span class="badge-gray text-[10px]">Apple India Sealed</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20iPhone%2017%20Air" target="_blank" class="btn-gold py-2.5 text-xs text-center font-semibold">
+                Buy via WhatsApp
+              </a>
+              <a href="tel:+919697771771" class="btn-glass py-2.5 text-xs text-center font-medium">
+                Call Showroom
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- iPhone 17 -->
+        <div class="phone-item glass-card p-6 flex flex-col justify-between group" data-category="17" data-name="iphone 17">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge-gold">All-New</span>
+              <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">In Stock Kasaragod</span>
+            </div>
+
+            <div class="product-card-img-wrap">
+              <img src="assets/images/iphone17-blue.jpg" alt="iPhone 17" class="product-card-img" />
+            </div>
+
+            <div class="mt-6 mb-3">
+              <h3 class="text-xl font-bold text-white group-hover:text-gold transition">iPhone 17</h3>
+              <p class="text-xs text-appleMuted mt-1">A19 Bionic • 6.1" Super Retina XDR • 48MP Dual Fusion Camera</p>
+            </div>
+
+            <!-- Features -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-white">Dynamic Island</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-gold">48MP Fusion</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-appleGray">Apple Intelligence</span>
+            </div>
+
+            <!-- Storage Options (Interactive) -->
+            <div class="mb-4">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Storage</label>
+              <div class="flex gap-2">
+                <button onclick="updatePrice('ip17', 72900, this)" class="storage-btn-ip17 px-2.5 py-1 rounded-lg text-xs bg-gold/15 border border-gold text-gold font-medium">128GB</button>
+                <button onclick="updatePrice('ip17', 82900, this)" class="storage-btn-ip17 px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">256GB</button>
+                <button onclick="updatePrice('ip17', 102900, this)" class="storage-btn-ip17 px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">512GB</button>
+              </div>
+            </div>
+
+            <!-- Key Features List -->
+            <div class="mb-6">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Highlights</label>
+              <ul class="text-xs text-appleGray space-y-1">
+                <li>• Advanced 48MP Fusion Camera system</li>
+                <li>• Next-generation A19 Bionic chip</li>
+                <li>• All-new sleek design with Ceramic Shield 2</li>
+                <li>• Built from the ground up for Apple Intelligence</li>
+                <li>• USB-C connectivity with faster transfer speeds</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span id="price-ip17" class="text-2xl font-black text-white">₹72,900</span>
+              </div>
+              <span class="badge-gray text-[10px]">Apple India Sealed</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20iPhone%2017" target="_blank" class="btn-gold py-2.5 text-xs text-center font-semibold">
+                Buy via WhatsApp
+              </a>
+              <a href="tel:+919697771771" class="btn-glass py-2.5 text-xs text-center font-medium">
+                Call Showroom
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- iPhone 16 -->
+        <div class="phone-item glass-card p-6 flex flex-col justify-between group" data-category="16" data-name="iphone 16">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge-gold">New Release</span>
+              <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">In Stock Kasaragod</span>
+            </div>
+
+            <div class="product-card-img-wrap">
+              <img src="assets/images/iphone16-pink.png" alt="iPhone 16" class="product-card-img" />
+            </div>
+
+            <div class="mt-6 mb-3">
+              <h3 class="text-xl font-bold text-white group-hover:text-gold transition">iPhone 16</h3>
+              <p class="text-xs text-appleMuted mt-1">A18 Bionic • Camera Control • 48MP Fusion Camera • Apple Intelligence</p>
+            </div>
+
+            <!-- Features -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-white">Camera Control</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-gold">Action Button</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-appleGray">Apple Intelligence</span>
+            </div>
+
+            <!-- Storage Options (Interactive) -->
+            <div class="mb-4">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Storage</label>
+              <div class="flex gap-2">
+                <button onclick="updatePrice('ip16', 69900, this)" class="storage-btn-ip16 px-2.5 py-1 rounded-lg text-xs bg-gold/15 border border-gold text-gold font-medium">128GB</button>
+                <button onclick="updatePrice('ip16', 79900, this)" class="storage-btn-ip16 px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">256GB</button>
+                <button onclick="updatePrice('ip16', 89900, this)" class="storage-btn-ip16 px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">512GB</button>
+              </div>
+            </div>
+
+            <!-- Key Features List -->
+            <div class="mb-6">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Highlights</label>
+              <ul class="text-xs text-appleGray space-y-1">
+                <li>• All-new Camera Control for effortless capture</li>
+                <li>• 48MP Fusion camera with 2x optical-quality Telephoto</li>
+                <li>• A18 chip leaps ahead in speed and efficiency</li>
+                <li>• Action button for quick access to your favorite feature</li>
+                <li>• Built for Apple Intelligence</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span id="price-ip16" class="text-2xl font-black text-white">₹69,900</span>
+              </div>
+              <span class="badge-gray text-[10px]">Apple India Sealed</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20iPhone%2016" target="_blank" class="btn-gold py-2.5 text-xs text-center font-semibold">
+                Buy via WhatsApp
+              </a>
+              <a href="tel:+919697771771" class="btn-glass py-2.5 text-xs text-center font-medium">
+                Call Showroom
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- iPhone 15 -->
+        <div class="phone-item glass-card p-6 flex flex-col justify-between group" data-category="15" data-name="iphone 15">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge-gold">Best Value</span>
+              <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">In Stock Kasaragod</span>
+            </div>
+
+            <div class="product-card-img-wrap">
+              <img src="assets/images/iphone15-green.png" alt="iPhone 15" class="product-card-img" />
+            </div>
+
+            <div class="mt-6 mb-3">
+              <h3 class="text-xl font-bold text-white group-hover:text-gold transition">iPhone 15</h3>
+              <p class="text-xs text-appleMuted mt-1">A16 Bionic • Dynamic Island • 48MP Main Camera • USB-C</p>
+            </div>
+
+            <!-- Features -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-white">Dynamic Island</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-gold">48MP Camera</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-appleGray">USB-C</span>
+            </div>
+
+            <!-- Storage -->
+            <div class="mb-4">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Storage</label>
+              <div class="flex gap-2">
+                <button onclick="updatePrice('ip15', 59900, this)" class="storage-btn-ip15 px-2.5 py-1 rounded-lg text-xs bg-gold/15 border border-gold text-gold font-medium">128GB</button>
+                <button onclick="updatePrice('ip15', 69900, this)" class="storage-btn-ip15 px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">256GB</button>
+                <button onclick="updatePrice('ip15', 79900, this)" class="storage-btn-ip15 px-2.5 py-1 rounded-lg text-xs bg-white/5 border border-white/10 text-appleGray hover:text-white transition">512GB</button>
+              </div>
+            </div>
+
+            <!-- Key Features List -->
+            <div class="mb-6">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Highlights</label>
+              <ul class="text-xs text-appleGray space-y-1">
+                <li>• Dynamic Island for alerts & Live Activities</li>
+                <li>• 48MP Main camera with 2x Telephoto</li>
+                <li>• Super Retina XDR display</li>
+                <li>• All-day battery — up to 20hrs video</li>
+                <li>• Ceramic Shield front, color-infused glass</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span id="price-ip15" class="text-2xl font-black text-white">₹59,900</span>
+              </div>
+              <span class="badge-gray text-[10px]">Apple India Sealed</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20iPhone%2015" target="_blank" class="btn-gold py-2.5 text-xs text-center font-semibold">
+                Buy via WhatsApp
+              </a>
+              <a href="tel:+919697771771" class="btn-glass py-2.5 text-xs text-center font-medium">
+                Call Showroom
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- USB-C 20W Power Adapter -->
+        <div class="phone-item glass-card p-6 flex flex-col justify-between group" data-category="value" data-name="usb-c 20w power adapter charger accessory">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge-gold">Apple Accessory</span>
+              <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">In Stock</span>
+            </div>
+
+            <div class="product-card-img-wrap">
+              <img src="assets/images/usbc-20w-adapter.png" alt="USB-C 20W Power Adapter" class="product-card-img" />
+            </div>
+
+            <div class="mt-6 mb-3">
+              <h3 class="text-xl font-bold text-white group-hover:text-gold transition">USB-C 20W Power Adapter</h3>
+              <p class="text-xs text-appleMuted mt-1">Official Apple — Fast Charge your iPhone in record time</p>
+            </div>
+
+            <!-- Features Pills -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-white">20W Fast Charge</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-gold">USB-C Port</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-appleGray">BIS Certified</span>
+            </div>
+
+            <!-- Key Features List -->
+            <div class="mb-6">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Highlights</label>
+              <ul class="text-xs text-appleGray space-y-1">
+                <li>• Charges iPhone 15 & 16 up to 50% in just 30 minutes</li>
+                <li>• Universal USB-C output for all modern Apple devices</li>
+                <li>• Compact, foldable plug design — perfect for travel</li>
+                <li>• BIS & IS 13252 certified for India safety standards</li>
+                <li>• Compatible with iPhone, iPad, AirPods & MacBook</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span class="text-2xl font-black text-white">₹2,299</span>
+              </div>
+              <span class="badge-gray text-[10px]">Official Apple</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20USB-C%2020W%20Power%20Adapter" target="_blank" class="btn-gold py-2.5 text-xs text-center font-semibold">
+                Buy via WhatsApp
+              </a>
+              <a href="tel:+919697771771" class="btn-glass py-2.5 text-xs text-center font-medium">
+                Call Showroom
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- USB-C 60W Charge Cable 1m -->
+        <div class="phone-item glass-card p-6 flex flex-col justify-between group" data-category="value" data-name="usb-c 60w charge cable 1m apple accessory">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge-gold">Apple Accessory</span>
+              <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">In Stock</span>
+            </div>
+
+            <div class="product-card-img-wrap">
+              <img src="assets/images/usbc-60w-cable.png" alt="USB-C 60W Charge Cable 1m" class="product-card-img" />
+            </div>
+
+            <div class="mt-6 mb-3">
+              <h3 class="text-xl font-bold text-white group-hover:text-gold transition">USB-C Charge Cable (1m)</h3>
+              <p class="text-xs text-appleMuted mt-1">Official Apple — Braided 60W USB-C to USB-C Cable</p>
+            </div>
+
+            <!-- Features Pills -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-white">60W Power</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-gold">Braided Design</span>
+              <span class="glass-pill px-2.5 py-1 rounded-md text-[10px] text-appleGray">1 Metre</span>
+            </div>
+
+            <!-- Key Features List -->
+            <div class="mb-6">
+              <label class="text-[10px] text-appleGray uppercase tracking-wider font-semibold block mb-1.5">Highlights</label>
+              <ul class="text-xs text-appleGray space-y-1">
+                <li>• 60W fast charging for iPhone, iPad & MacBook</li>
+                <li>• Durable woven braided design resists tangling</li>
+                <li>• Works with all USB-C devices — phones, tablets, laptops</li>
+                <li>• Supports fast data transfer up to 480 Mbps</li>
+                <li>• Official Apple — guaranteed quality & compatibility</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span class="text-2xl font-black text-white">₹1,900</span>
+              </div>
+              <span class="badge-gray text-[10px]">Official Apple</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20USB-C%2060W%20Charge%20Cable%201m" target="_blank" class="btn-gold py-2.5 text-xs text-center font-semibold">
+                Buy via WhatsApp
+              </a>
+              <a href="tel:+919697771771" class="btn-glass py-2.5 text-xs text-center font-medium">
+                Call Showroom
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No Results Found Fallback -->
+      <div id="no-results" class="hidden text-center py-16">
+        <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mx-auto text-appleMuted mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-white">No iPhone models match your search</h3>
+        <p class="text-xs text-appleGray mt-1">Try searching for "17", "Pro Max", "16", or reset filters.</p>
+        <button onclick="resetFilters()" class="btn-gold mt-4 py-2 px-5 text-xs">Reset All Filters</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       4. STORE CONCIERGE & FOOTER
+       ========================================================================= -->
+  <footer class="bg-[#08080a] border-t border-white/5 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="flex items-center justify-center sm:justify-start gap-2 mb-2">
+          <img src="assets/images/planet-logo.jpg" alt="Planet KSD Logo" class="w-5 h-5 object-contain rounded-md" />
+          <span class="font-bold text-white tracking-wider">PLANET <span class="text-gold">KSD</span></span>
+        </div>
+        <p class="text-xs text-appleGray">Ground Floor, Gulf Bazar, Near New Bus Stand, Kasaragod, Kerala â€” 671124</p>
+        <p class="text-xs text-appleMuted mt-1">Official WhatsApp Orders &amp; Inquiries: <a href="tel:+919697771771" class="text-gold hover:underline font-semibold">+91 96977 71771</a></p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="btn-glass text-xs py-2 px-4">
+          â† Return to Home
+        </a>
+        <a href="https://wa.me/919697771771?text=Hi%20PLANET%20KSD%2C%20I%20want%20to%20order%20an%20iPhone" target="_blank" class="btn-gold text-xs py-2 px-5">
+          Order on WhatsApp
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Simple Client-side Filter Script -->
+  <script>
+    let activeCategory = 'all';
+
+    function setCategory(cat, btn) {
+      activeCategory = cat;
+      document.querySelectorAll('.category-filter-btn').forEach(b => {
+        b.classList.remove('border-gold', 'bg-gold/15', 'text-gold');
+        b.classList.add('border-white/10', 'text-appleGray');
+      });
+      btn.classList.remove('border-white/10', 'text-appleGray');
+      btn.classList.add('border-gold', 'bg-gold/15', 'text-gold');
+      filterPhones();
+    }
+
+    function filterPhones() {
+      const query = (document.getElementById('phone-search-input')?.value || '').toLowerCase().trim();
+      const items = document.querySelectorAll('.phone-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        const itemName = item.getAttribute('data-name') || '';
+
+        const matchesCat = (activeCategory === 'all') || (itemCat === activeCategory);
+        const matchesQuery = !query || itemName.includes(query);
+
+        if (matchesCat && matchesQuery) {
+          item.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      const countEl = document.getElementById('results-count');
+      const noResults = document.getElementById('no-results');
+
+      if (countEl) countEl.innerText = `Showing ${visibleCount} Model${visibleCount === 1 ? '' : 's'}`;
+      if (noResults) {
+        if (visibleCount === 0) noResults.classList.remove('hidden');
+        else noResults.classList.add('hidden');
+      }
+    }
+
+    function resetFilters() {
+      const input = document.getElementById('phone-search-input');
+      if (input) input.value = '';
+      const allBtn = document.querySelector('.category-filter-btn');
+      if (allBtn) setCategory('all', allBtn);
+    }
+
+    function updatePrice(phoneId, newPrice, clickedBtn) {
+      // Update price text
+      const priceEl = document.getElementById(`price-${phoneId}`);
+      if (priceEl) {
+        priceEl.innerText = `₹${newPrice.toLocaleString('en-IN')}`;
+      }
+
+      // Update button styles
+      const allBtns = document.querySelectorAll(`.storage-btn-${phoneId}`);
+      allBtns.forEach(btn => {
+        btn.classList.remove('bg-gold/15', 'border-gold', 'text-gold');
+        btn.classList.add('bg-white/5', 'border-white/10', 'text-appleGray');
+      });
+
+      clickedBtn.classList.remove('bg-white/5', 'border-white/10', 'text-appleGray');
+      clickedBtn.classList.add('bg-gold/15', 'border-gold', 'text-gold');
+    }
+  </script>
+
+</body>
+</html>
+

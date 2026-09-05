@@ -1,0 +1,22 @@
+# Node
+node_modules/
+npm-debug.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.suo
+*.user
+
+# Logs
+*.log
+
+# Temp
+*.tmp
+*.bak
+
+# Large zip files
+*.zip
