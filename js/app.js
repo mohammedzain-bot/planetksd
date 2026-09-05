@@ -623,16 +623,18 @@ function initHeroCanvasSequence() {
     }
 
     if (img && img.complete && img.naturalWidth > 0) {
-      const baseScale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
       const isMobile = window.innerWidth <= 768;
-      const scale = baseScale * (isMobile ? 0.95 : 0.82);
+      let scale;
+      if (isMobile) {
+        // Cover: fill full screen height — iPhone is centred in frame so stays visible
+        scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      } else {
+        scale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight) * 0.82;
+      }
       const nw = Math.round(img.naturalWidth * scale);
       const nh = Math.round(img.naturalHeight * scale);
-      
-      // Center the image
       const nx = Math.round((cw - nw) / 2);
       const ny = Math.round((ch - nh) / 2);
-
       ctx.drawImage(img, nx, ny, nw, nh);
     }
   }
@@ -700,14 +702,17 @@ function initHeroCanvasSequence() {
 
     // Draw primary frame
     if (img && img.complete && img.naturalWidth > 0) {
-      const baseScale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
       const isMobile = window.innerWidth <= 768;
-      const scale = baseScale * (isMobile ? 0.95 : 0.82);
+      let scale;
+      if (isMobile) {
+        scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      } else {
+        scale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight) * 0.82;
+      }
       const nw = Math.round(img.naturalWidth * scale);
       const nh = Math.round(img.naturalHeight * scale);
       const nx = Math.round((cw - nw) / 2);
       const ny = Math.round((ch - nh) / 2);
-
       ctx.drawImage(img, nx, ny, nw, nh);
     }
   }
