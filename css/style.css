@@ -5,6 +5,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+html, body {
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
 :root {
   --color-bg: #050505;
   --color-bg-alt: #0a0a0d;
@@ -722,8 +727,8 @@ body {
 
   /* Use small viewport height — stable even when browser chrome shows/hides */
   .hero-sticky-stage {
+    height: 100vh; /* fallback MUST come first */
     height: 100svh;
-    height: 100vh; /* fallback */
   }
 
   /* Canvas fills the full mobile screen cleanly */

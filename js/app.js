@@ -714,15 +714,20 @@ function initHeroCanvasSequence() {
     }
   }
 
-  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  let lastWidth = window.innerWidth;
   window.addEventListener('resize', () => {
+    // On mobile, ignore vertical-only resizes (address bar hiding) to prevent scroll jitter
+    if (window.innerWidth <= 768 && window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
+    
     resizeCanvas();
     updateScrollProgress();
   });
 
   // Handle mobile browser chrome appearing/disappearing (address bar)
   if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', () => {
+    visualViewport.addEventListener('resize', () => {
+      if (window.innerWidth <= 768 && window.innerWidth === lastWidth) return;
       resizeCanvas();
       updateScrollProgress();
     });
