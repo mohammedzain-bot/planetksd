@@ -715,20 +715,14 @@ function initHeroCanvasSequence() {
   }
 
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
-  let lastWidth = window.innerWidth;
   window.addEventListener('resize', () => {
-    // On mobile, ignore vertical-only resizes (address bar hiding) to prevent scroll jitter
-    if (window.innerWidth <= 768 && window.innerWidth === lastWidth) return;
-    lastWidth = window.innerWidth;
-    
     resizeCanvas();
     updateScrollProgress();
   });
 
   // Handle mobile browser chrome appearing/disappearing (address bar)
   if (window.visualViewport) {
-    visualViewport.addEventListener('resize', () => {
-      if (window.innerWidth <= 768 && window.innerWidth === lastWidth) return;
+    window.visualViewport.addEventListener('resize', () => {
       resizeCanvas();
       updateScrollProgress();
     });
@@ -746,41 +740,6 @@ function initHeroCanvasSequence() {
 document.addEventListener('DOMContentLoaded', () => {
   updateCartUI();
   initHeroCanvasSequence();
+});
 
-  // ── Android only: skip the sticky dead-zone black space ──────────────────
-  // The hero track is 300vh = 3 viewport-heights.
-  // sticky-stage is 100vh = 1 viewport-height.
-  // Dead zone = last 100vh of track = last 1/3 of track.offsetHeight.
-  // We CANNOT use window.innerHeight because Android Chrome changes it
-  // dynamically as the URL bar hides/shows. Instead we use track.offsetHeight/3.
-  const isAndroid = /Android/i.test(navigator.userAgent);
-  if (isAndroid) {
-    const track = document.getElementById('hero-scroll-track');
-    const products = document.getElementById('products');
-    if (track && products) {
-      let lastY    = -1;
-      let skipping = false;
-
-      window.addEventListener('scroll', () => {
-        if (skipping) return;
-        const y         = window.scrollY;
-        const goingDown = (lastY < 0) ? false : y > lastY;
-        lastY           = y;
-        if (!goingDown) return;
-
-        // Track is 300vh = 3 sections. Dead zone = last third.
-        // trackTop = absolute document position of the track
-        const trackTop   = track.getBoundingClientRect().top + y;
-        const oneVh      = track.offsetHeight / 3;   // = 100vh in pixels
-        const deadStart  = trackTop + oneVh * 2;     // after 200vh (animation done)
-        const deadEnd    = trackTop + oneVh * 3;     // at 300vh (track end)
-
-        if (y > deadStart && y < deadEnd) {
-          skipping = true;
-          window.scrollTo(0, deadEnd);              // instant jump, no smooth
-          setTimeout(() => { skipping = false; }, 400);
-        }
-      }, { passive: true });
-    }
-  }
 

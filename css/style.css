@@ -548,7 +548,6 @@ body {
   }
   .cart-drawer {
     max-width: 100%;
-    right: -100%; /* Fix: Must be pushed off by 100% since width is now 100% */
   }
 }
 
@@ -723,8 +722,8 @@ body {
 
   /* Use small viewport height — stable even when browser chrome shows/hides */
   .hero-sticky-stage {
-    height: 100vh; /* fallback MUST come first */
     height: 100svh;
+    height: 100vh; /* fallback */
   }
 
   /* Canvas fills the full mobile screen cleanly */
