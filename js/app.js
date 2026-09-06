@@ -746,6 +746,39 @@ function initHeroCanvasSequence() {
 document.addEventListener('DOMContentLoaded', () => {
   updateCartUI();
   initHeroCanvasSequence();
+
+  // ── Android only: skip the sticky dead-zone black space ──────────────────
+  // On Android Chrome, after position:sticky exits its container there is a
+  // ~100vh dead zone of empty black background.  We detect Android and instantly
+  // jump the scroll position to the products section so the gap is invisible.
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  if (isAndroid) {
+    const track    = document.getElementById('hero-scroll-track');
+    const products = document.getElementById('products');
+    if (track && products) {
+      let lastY    = window.scrollY;
+      let skipping = false;
+
+      window.addEventListener('scroll', () => {
+        if (skipping) return;
+        const y          = window.scrollY;
+        const goingDown  = y > lastY;
+        lastY            = y;
+        if (!goingDown)  return;
+
+        // Dead zone = from where sticky exits to end of track
+        const deadStart  = track.offsetTop + track.offsetHeight - window.innerHeight;
+        const deadEnd    = track.offsetTop + track.offsetHeight;
+
+        if (y > deadStart && y < deadEnd) {
+          skipping = true;
+          // Instant jump — no smooth, so user never sees the black space
+          window.scrollTo(0, deadEnd);
+          setTimeout(() => { skipping = false; }, 300);
+        }
+      }, { passive: true });
+    }
+  }
 });
 
 
