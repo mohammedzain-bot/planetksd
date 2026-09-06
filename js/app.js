@@ -828,12 +828,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 6. Start as soon as frame 1 is ready
+    //    autoPlay() needs a proper RAF timestamp — always call via requestAnimationFrame
     function startWhenReady() {
       const f1 = frames[1];
       if (f1 && f1.complete && f1.naturalWidth > 0) {
-        autoPlay();
+        requestAnimationFrame(autoPlay);
       } else {
-        f1.onload = autoPlay;
+        f1.onload = () => requestAnimationFrame(autoPlay);
       }
     }
     startWhenReady();
