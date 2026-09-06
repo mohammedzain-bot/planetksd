@@ -748,37 +748,39 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroCanvasSequence();
 
   // ── Android only: skip the sticky dead-zone black space ──────────────────
-  // On Android Chrome, after position:sticky exits its container there is a
-  // ~100vh dead zone of empty black background.  We detect Android and instantly
-  // jump the scroll position to the products section so the gap is invisible.
+  // The hero track is 300vh = 3 viewport-heights.
+  // sticky-stage is 100vh = 1 viewport-height.
+  // Dead zone = last 100vh of track = last 1/3 of track.offsetHeight.
+  // We CANNOT use window.innerHeight because Android Chrome changes it
+  // dynamically as the URL bar hides/shows. Instead we use track.offsetHeight/3.
   const isAndroid = /Android/i.test(navigator.userAgent);
   if (isAndroid) {
-    const track    = document.getElementById('hero-scroll-track');
+    const track = document.getElementById('hero-scroll-track');
     const products = document.getElementById('products');
     if (track && products) {
-      let lastY    = window.scrollY;
+      let lastY    = -1;
       let skipping = false;
 
       window.addEventListener('scroll', () => {
         if (skipping) return;
-        const y          = window.scrollY;
-        const goingDown  = y > lastY;
-        lastY            = y;
-        if (!goingDown)  return;
+        const y         = window.scrollY;
+        const goingDown = (lastY < 0) ? false : y > lastY;
+        lastY           = y;
+        if (!goingDown) return;
 
-        // Dead zone = from where sticky exits to end of track
-        const deadStart  = track.offsetTop + track.offsetHeight - window.innerHeight;
-        const deadEnd    = track.offsetTop + track.offsetHeight;
+        // Track is 300vh = 3 sections. Dead zone = last third.
+        // trackTop = absolute document position of the track
+        const trackTop   = track.getBoundingClientRect().top + y;
+        const oneVh      = track.offsetHeight / 3;   // = 100vh in pixels
+        const deadStart  = trackTop + oneVh * 2;     // after 200vh (animation done)
+        const deadEnd    = trackTop + oneVh * 3;     // at 300vh (track end)
 
         if (y > deadStart && y < deadEnd) {
           skipping = true;
-          // Instant jump — no smooth, so user never sees the black space
-          window.scrollTo(0, deadEnd);
-          setTimeout(() => { skipping = false; }, 300);
+          window.scrollTo(0, deadEnd);              // instant jump, no smooth
+          setTimeout(() => { skipping = false; }, 400);
         }
       }, { passive: true });
     }
   }
-});
-
 
