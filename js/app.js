@@ -721,10 +721,16 @@ function initHeroCanvasSequence() {
   });
 
   // Handle mobile browser chrome appearing/disappearing (address bar)
+  // MUST be debounced — on Android Chrome this fires constantly during scroll
+  // as the URL bar hides, causing resizeCanvas() to clear the canvas mid-animation.
   if (window.visualViewport) {
+    let vpResizeTimer;
     window.visualViewport.addEventListener('resize', () => {
-      resizeCanvas();
-      updateScrollProgress();
+      clearTimeout(vpResizeTimer);
+      vpResizeTimer = setTimeout(() => {
+        resizeCanvas();
+        updateScrollProgress();
+      }, 300);
     });
   }
 
