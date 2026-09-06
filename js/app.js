@@ -745,7 +745,79 @@ function initHeroCanvasSequence() {
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
   updateCartUI();
-  initHeroCanvasSequence();
+
+  const isAndroid = /Android/i.test(navigator.userAgent);
+
+  if (isAndroid) {
+    // ── ANDROID: Auto-play animation like a video, zero dead zone ─────────────
+    // 1. Collapse the scroll track to exactly 100vh (sticky height = track height
+    //    = zero dead zone). Products section follows immediately.
+    // 2. Remove the sticky positioning so the stage sits in normal flow.
+    // 3. Remove the mobile negative margin on products.
+    // 4. Auto-play frames 1→214 at 30 fps, then hold on last frame.
+    const track    = document.getElementById('hero-scroll-track');
+    const stage    = document.getElementById('hero-sticky-stage');
+    const products = document.getElementById('products');
+
+    if (track)    { track.style.height   = '100vh'; }
+    if (stage)    { stage.style.position = 'relative'; stage.style.top = 'auto'; }
+    if (products) { products.style.marginTop = '0'; }
+
+    // Run initHeroCanvasSequence to load frames + size the canvas
+    initHeroCanvasSequence();
+
+    // Wait until at least frame 1 is loaded, then auto-play
+    const TOTAL   = HERO_CONFIG.frameCount;   // 214
+    const FPS     = 30;
+    const DELAY   = Math.round(1000 / FPS);   // ~33ms per frame
+
+    let playFrame = 1;
+
+    function autoPlay() {
+      if (playFrame > TOTAL) return;          // hold on last frame
+
+      // heroFrames[playFrame] is the Image object loaded by initHeroCanvasSequence
+      currentFrameIndex = playFrame;
+
+      const canvas = document.getElementById('hero-sequence-canvas');
+      if (canvas) {
+        const ctx  = canvas.getContext('2d');
+        const cw   = canvas.width;
+        const ch   = canvas.height;
+        const img  = heroFrames[playFrame];
+
+        ctx.fillStyle = '#050505';
+        ctx.fillRect(0, 0, cw, ch);
+
+        if (img && img.complete && img.naturalWidth > 0) {
+          const base  = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
+          const scale = base * 0.95;
+          const nw    = Math.round(img.naturalWidth  * scale);
+          const nh    = Math.round(img.naturalHeight * scale);
+          const nx    = Math.round((cw - nw) / 2);
+          const ny    = Math.round((ch - nh) / 2);
+          ctx.drawImage(img, nx, ny, nw, nh);
+        }
+      }
+
+      playFrame++;
+      setTimeout(autoPlay, DELAY);
+    }
+
+    // Start playback once frame 1 is ready (it loads very fast)
+    function waitForFirstFrame() {
+      if (heroFrames[1] && heroFrames[1].complete && heroFrames[1].naturalWidth > 0) {
+        autoPlay();
+      } else {
+        setTimeout(waitForFirstFrame, 50);
+      }
+    }
+    waitForFirstFrame();
+
+  } else {
+    // ── iOS / Desktop: unchanged scroll animation ──────────────────────────
+    initHeroCanvasSequence();
+  }
 });
 
 
