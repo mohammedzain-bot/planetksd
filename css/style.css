@@ -548,6 +548,7 @@ body {
   }
   .cart-drawer {
     max-width: 100%;
+    right: -100%; /* Push completely off-screen on iPad since width is 100% */
   }
 }
 
