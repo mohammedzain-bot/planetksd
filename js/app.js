@@ -714,6 +714,7 @@ function initHeroCanvasSequence() {
     }
   }
 
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
   let lastWidth = window.innerWidth;
   window.addEventListener('resize', () => {
     // On mobile, ignore vertical-only resizes (address bar hiding) to prevent scroll jitter
