@@ -781,7 +781,7 @@ document.addEventListener('DOMContentLoaded', () => {
       frames[i] = img;
     }
 
-    // 4. Draw one frame onto the canvas
+    // 4. Draw one frame onto the canvas with maximum quality
     function drawFrame(idx) {
       const ctx = canvas.getContext('2d');
       const cw  = canvas.width;
@@ -791,9 +791,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.fillStyle = '#050505';
       ctx.fillRect(0, 0, cw, ch);
 
+      // Maximum image quality
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+
       if (img && img.complete && img.naturalWidth > 0) {
         const base  = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
-        const scale = base * 0.95;          // same scale as iOS scroll version
+        const scale = base * 0.95;
         const nw    = Math.round(img.naturalWidth  * scale);
         const nh    = Math.round(img.naturalHeight * scale);
         const nx    = Math.round((cw - nw) / 2);
@@ -802,14 +806,25 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 5. Auto-play at 30fps — stops on last frame (holds product reveal shot)
-    let playFrame = 1;
-    function autoPlay() {
-      drawFrame(playFrame);
-      if (playFrame < TOTAL) {
-        playFrame++;
-        setTimeout(autoPlay, 33); // 33ms ≈ 30fps
+    // 5. Auto-play using requestAnimationFrame — runs at device native refresh rate
+    //    (60fps on standard screens, 120fps on high-refresh Android phones).
+    //    Total animation duration is fixed at 7 seconds regardless of refresh rate,
+    //    so faster screens = smoother motion, not faster playback.
+    const DURATION_MS = 7000; // 7 seconds total
+    let startTime = null;
+
+    function autoPlay(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed  = timestamp - startTime;
+      const progress = Math.min(elapsed / DURATION_MS, 1.0);
+      const frameIdx = Math.max(1, Math.min(TOTAL, Math.round(progress * (TOTAL - 1)) + 1));
+
+      drawFrame(frameIdx);
+
+      if (progress < 1.0) {
+        requestAnimationFrame(autoPlay); // keeps playing
       }
+      // progress === 1.0 → stops here, holding the final product reveal frame
     }
 
     // 6. Start as soon as frame 1 is ready
