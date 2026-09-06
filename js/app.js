@@ -749,75 +749,82 @@ document.addEventListener('DOMContentLoaded', () => {
   const isAndroid = /Android/i.test(navigator.userAgent);
 
   if (isAndroid) {
-    // ── ANDROID: Auto-play animation like a video, zero dead zone ─────────────
-    // 1. Collapse the scroll track to exactly 100vh (sticky height = track height
-    //    = zero dead zone). Products section follows immediately.
-    // 2. Remove the sticky positioning so the stage sits in normal flow.
-    // 3. Remove the mobile negative margin on products.
-    // 4. Auto-play frames 1→214 at 30 fps, then hold on last frame.
+    // ── ANDROID: 30fps auto-play animation + zero dead zone ───────────────────
+    // We do NOT call initHeroCanvasSequence() here because its internal RAF loop
+    // would keep overwriting our frames with frame 1 (scroll progress = 0 always).
+    // Instead we handle canvas setup + frame loading + playback ourselves.
+
+    // 1. Fix layout — collapse track to 100vh so there is zero sticky dead zone
     const track    = document.getElementById('hero-scroll-track');
     const stage    = document.getElementById('hero-sticky-stage');
     const products = document.getElementById('products');
-
-    if (track)    { track.style.height   = '100vh'; }
+    if (track)    track.style.height = '100vh';
     if (stage)    { stage.style.position = 'relative'; stage.style.top = 'auto'; }
-    if (products) { products.style.marginTop = '0'; }
+    if (products) products.style.marginTop = '0';
 
-    // Run initHeroCanvasSequence to load frames + size the canvas
-    initHeroCanvasSequence();
+    // 2. Size the canvas
+    const canvas = document.getElementById('hero-sequence-canvas');
+    if (!canvas) { initHeroCanvasSequence(); return; }
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    canvas.width  = window.innerWidth  * dpr;
+    canvas.height = window.innerHeight * dpr;
 
-    // Wait until at least frame 1 is loaded, then auto-play
-    const TOTAL   = HERO_CONFIG.frameCount;   // 214
-    const FPS     = 30;
-    const DELAY   = Math.round(1000 / FPS);   // ~33ms per frame
+    // 3. Load all 214 frames
+    const TOTAL  = HERO_CONFIG.frameCount; // 214
+    const prefix = HERO_CONFIG.framePrefix;
+    const ext    = HERO_CONFIG.frameExt;
+    const frames = [];
 
-    let playFrame = 1;
-
-    function autoPlay() {
-      if (playFrame > TOTAL) return;          // hold on last frame
-
-      // heroFrames[playFrame] is the Image object loaded by initHeroCanvasSequence
-      currentFrameIndex = playFrame;
-
-      const canvas = document.getElementById('hero-sequence-canvas');
-      if (canvas) {
-        const ctx  = canvas.getContext('2d');
-        const cw   = canvas.width;
-        const ch   = canvas.height;
-        const img  = heroFrames[playFrame];
-
-        ctx.fillStyle = '#050505';
-        ctx.fillRect(0, 0, cw, ch);
-
-        if (img && img.complete && img.naturalWidth > 0) {
-          const base  = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
-          const scale = base * 0.95;
-          const nw    = Math.round(img.naturalWidth  * scale);
-          const nh    = Math.round(img.naturalHeight * scale);
-          const nx    = Math.round((cw - nw) / 2);
-          const ny    = Math.round((ch - nh) / 2);
-          ctx.drawImage(img, nx, ny, nw, nh);
-        }
-      }
-
-      playFrame++;
-      setTimeout(autoPlay, DELAY);
+    for (let i = 1; i <= TOTAL; i++) {
+      const img = new Image();
+      img.src = `${prefix}${String(i).padStart(3, '0')}${ext}`;
+      frames[i] = img;
     }
 
-    // Start playback once frame 1 is ready (it loads very fast)
-    function waitForFirstFrame() {
-      if (heroFrames[1] && heroFrames[1].complete && heroFrames[1].naturalWidth > 0) {
+    // 4. Draw one frame onto the canvas
+    function drawFrame(idx) {
+      const ctx = canvas.getContext('2d');
+      const cw  = canvas.width;
+      const ch  = canvas.height;
+      const img = frames[idx];
+
+      ctx.fillStyle = '#050505';
+      ctx.fillRect(0, 0, cw, ch);
+
+      if (img && img.complete && img.naturalWidth > 0) {
+        const base  = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
+        const scale = base * 0.95;          // same scale as iOS scroll version
+        const nw    = Math.round(img.naturalWidth  * scale);
+        const nh    = Math.round(img.naturalHeight * scale);
+        const nx    = Math.round((cw - nw) / 2);
+        const ny    = Math.round((ch - nh) / 2);
+        ctx.drawImage(img, nx, ny, nw, nh);
+      }
+    }
+
+    // 5. Auto-play at 30fps — stops on last frame (holds product reveal shot)
+    let playFrame = 1;
+    function autoPlay() {
+      drawFrame(playFrame);
+      if (playFrame < TOTAL) {
+        playFrame++;
+        setTimeout(autoPlay, 33); // 33ms ≈ 30fps
+      }
+    }
+
+    // 6. Start as soon as frame 1 is ready
+    function startWhenReady() {
+      const f1 = frames[1];
+      if (f1 && f1.complete && f1.naturalWidth > 0) {
         autoPlay();
       } else {
-        setTimeout(waitForFirstFrame, 50);
+        f1.onload = autoPlay;
       }
     }
-    waitForFirstFrame();
+    startWhenReady();
 
   } else {
     // ── iOS / Desktop: unchanged scroll animation ──────────────────────────
     initHeroCanvasSequence();
   }
 });
-
-
