@@ -574,7 +574,7 @@ body {
    ========================================================================== */
 .hero-scroll-track {
   position: relative;
-  height: 480vh;
+  height: 200vh;
   background-color: #050505;
   margin-top: -1px;
 }

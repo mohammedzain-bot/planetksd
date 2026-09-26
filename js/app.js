@@ -627,7 +627,7 @@ function initHeroCanvasSequence() {
       const baseScale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
       // On mobile (portrait), use a larger scale so the phone fills the screen properly
       const isMobile = window.innerWidth <= 768;
-      const scale = baseScale * (isMobile ? 0.95 : 0.82);
+      const scale = baseScale * (isMobile ? 0.95 : 1.0);
       const nw = Math.round(img.naturalWidth * scale);
       const nh = Math.round(img.naturalHeight * scale);
       
@@ -704,7 +704,7 @@ function initHeroCanvasSequence() {
     if (img && img.complete && img.naturalWidth > 0) {
       const baseScale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
       const isMobile = window.innerWidth <= 768;
-      const scale = baseScale * (isMobile ? 0.95 : 0.82);
+      const scale = baseScale * (isMobile ? 0.95 : 1.0);
       const nw = Math.round(img.naturalWidth * scale);
       const nh = Math.round(img.naturalHeight * scale);
       const nx = Math.round((cw - nw) / 2);
