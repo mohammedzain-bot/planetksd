@@ -591,6 +591,13 @@ body {
   background-color: #050505;
 }
 
+/* Desktop only: constrain hero to 16:9 aspect ratio */
+@media (min-width: 769px) {
+  .hero-sticky-stage {
+    height: min(calc(100vw * 9 / 16), 100vh);
+  }
+}
+
 #hero-sequence-canvas {
   position: absolute;
   top: 0;

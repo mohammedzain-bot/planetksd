@@ -570,8 +570,12 @@ function initHeroCanvasSequence() {
 
   function resizeCanvas() {
     const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    const isMobile = window.innerWidth <= 768;
     canvas.width = window.innerWidth * dpr;
-    canvas.height = getMobileAwareHeight() * dpr;
+    // Desktop: match the 16:9 CSS stage height; Mobile: use stable visualViewport height
+    canvas.height = isMobile
+      ? getMobileAwareHeight() * dpr
+      : Math.min(window.innerWidth * 9 / 16, window.innerHeight) * dpr;
     renderCurrentFrame();
   }
 
