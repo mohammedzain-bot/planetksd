@@ -142,8 +142,22 @@
         </div>
       </div>
 
-      <!-- iPhone 18 & 17 Series — Compact 2-col (Mobile) / 6-col (Desktop) -->
-      <div class="grid grid-cols-2 lg:grid-cols-6 gap-3 md:gap-4">
+      <!-- iPhone Duo, 18 & 17 Series — Flex Wrap for graceful scaling -->
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4">
+
+        <!-- CARD 000: iPhone Duo -->
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-duo'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+          <!-- Phone Image -->
+          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+            <img src="assets/images/iphone-duo.png" alt="iPhone Duo" class="h-28 sm:h-40 object-contain transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <!-- Name & Price -->
+          <div>
+            <span class="text-[9px] sm:text-[10px] font-bold tracking-widest text-gold uppercase mb-1 block">Revolutionary</span>
+            <h3 class="text-xs sm:text-sm font-semibold text-white truncate">iPhone Duo</h3>
+            <p class="text-[10px] sm:text-xs text-appleGray mt-0.5">From ₹2,99,900</p>
+          </div>
+        </div>
 
         <!-- CARD 00: iPhone 18 Pro Max -->
         <div onclick="window.location.href='phone-detail.html?phone=iphone-18-pro-max'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
