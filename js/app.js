@@ -548,7 +548,7 @@ window.addEventListener('scroll', () => {
 // 214 high-precision frames with scroll-synced kinetic text features
 // ==========================================================================
 const HERO_CONFIG = {
-  frameCount: 241,
+  frameCount: 240,
   framePrefix: 'assets/images/new_hero/ezgif-frame-',
   frameExt: '.jpg'
 };
