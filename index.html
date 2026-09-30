@@ -47,7 +47,7 @@
   <!-- Custom Luxury CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="bg-obsidian text-appleWhite font-sans antialiased overflow-x-hidden selection:bg-gold/30 selection:text-gold">
+<body class="bg-gray-50 text-gray-900 font-sans antialiased overflow-x-hidden selection:bg-gold/30 selection:text-gold">
 
   <!-- =========================================================================
        1. SLIM MINIMALIST LUXURY GLASS NAVBAR
@@ -107,38 +107,21 @@
   <!-- =========================================================================
        2. NEW STATIC HERO SECTION
        ========================================================================= -->
-  <section id="hero" class="relative bg-obsidian min-h-[80vh] md:min-h-[90vh] flex items-center overflow-hidden">
-    <!-- Background (Using uploaded mockup image as placeholder, heavily dimmed so text is readable) -->
-    <div class="absolute inset-0 z-0">
-      <img src="assets/images/store-bg.jpg" alt="Planet Store" class="w-full h-full object-cover object-center opacity-30 mix-blend-luminosity" />
-      <div class="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/80 to-transparent"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
+  <section id="hero" class="relative bg-white min-h-[80vh] md:min-h-[90vh] flex items-center overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 z-0 bg-black">
+      <img src="assets/images/store-bg.jpg" alt="Planet Store" class="w-full h-full object-cover object-center opacity-75" />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
     </div>
     
     <!-- Hero Content -->
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 pb-12">
       <div class="max-w-3xl">
         <h4 class="text-gold font-semibold text-sm md:text-base mb-3 tracking-wider uppercase">Planet</h4>
-        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight drop-shadow-lg">
           Experience Apple<br/>Differently.
         </h1>
-        <p class="text-xl md:text-2xl text-appleWhite font-medium mb-4">
-          Premium Apple Products. Genuine Service.<br/>A Better Experience.
-        </p>
-        <p class="text-sm md:text-base text-appleGray mb-10 max-w-2xl leading-relaxed">
-          From iPhone to Mac, iPad to Apple Watch, AirPods and more — find the perfect Apple product with expert guidance and after-sales support, all under one roof.
-        </p>
-        
-        <div class="flex flex-col sm:flex-row items-center gap-4">
-          <a href="#products" class="bg-gold hover:bg-gold-light text-black font-bold px-8 py-3.5 rounded-full transition-colors flex items-center justify-center w-full sm:w-auto text-sm">
-            Shop Now
-            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-          </a>
-          <a href="#contact" class="border border-white/20 hover:border-white/50 text-white font-bold px-8 py-3.5 rounded-full transition-colors flex items-center justify-center w-full sm:w-auto gap-2 text-sm bg-white/5 backdrop-blur-sm">
-            Visit Our Store 
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -192,22 +175,22 @@
   <!-- =========================================================================
        3. POPULAR PRODUCTS (5 PREMIUM CARDS)
        ========================================================================= -->
-  <section id="products" class="pt-8 pb-20 md:py-24 -mt-[30vh] md:mt-0 bg-[#08080a] relative z-20 border-t border-[rgba(255,255,255,0.04)]">
+  <section id="products" class="pt-16 pb-20 md:py-24 bg-gray-50 relative z-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
-          <span class="text-[11px] font-bold text-appleGray uppercase tracking-widest mb-2 block">Featured Products</span>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-2">
+          <span class="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-2 block">Featured Products</span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black tracking-tight mb-2">
             The Best of Apple.
           </h2>
-          <p class="text-appleGray mt-1 text-sm max-w-xl">
+          <p class="text-gray-500 mt-1 text-sm max-w-xl">
             Latest products. Iconic designs. Endless possibilities.
           </p>
         </div>
         <div class="flex items-center gap-2">
-          <span class="text-xs text-appleMuted">All prices include official GST & Warranty</span>
+          <span class="text-xs text-gray-400">All prices include official GST & Warranty</span>
         </div>
       </div>
 
@@ -215,95 +198,95 @@
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4">
 
         <!-- CARD 000: iPhone Duo -->
-        <div onclick="window.location.href='phone-detail.html?phone=iphone-duo'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-duo'" class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
           <!-- Phone Image -->
-          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+          <div class="flex justify-center bg-gray-50 rounded-xl mb-3 py-4">
             <img src="assets/images/iphone-duo.png" alt="iPhone Duo" class="h-28 sm:h-40 object-contain transition-transform duration-500 group-hover:scale-105" />
           </div>
           <!-- Name & Price -->
           <div>
             <span class="text-[9px] sm:text-[10px] font-bold tracking-widest text-gold uppercase mb-1 block">Revolutionary</span>
-            <h3 class="text-xs sm:text-sm font-semibold text-white truncate">iPhone Duo</h3>
-            <p class="text-[10px] sm:text-xs text-appleGray mt-0.5">From ₹2,99,900</p>
+            <h3 class="text-xs sm:text-sm font-semibold text-gray-900 truncate">iPhone Duo</h3>
+            <p class="text-[10px] sm:text-xs text-gray-500 mt-0.5">From ₹2,99,900</p>
           </div>
         </div>
 
         <!-- CARD 00: iPhone 18 Pro Max -->
-        <div onclick="window.location.href='phone-detail.html?phone=iphone-18-pro-max'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-18-pro-max'" class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
           <!-- Phone Image -->
-          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+          <div class="flex justify-center bg-gray-50 rounded-xl mb-3 py-4">
             <img src="assets/images/iphone18-promax.jpg" alt="iPhone 18 Pro Max" class="h-28 sm:h-40 object-contain transition-transform duration-500 group-hover:scale-105" />
           </div>
           <!-- Name & Price -->
           <div>
             <span class="text-[9px] sm:text-[10px] font-bold tracking-widest text-gold uppercase mb-1 block">Ultimate Release</span>
-            <h3 class="text-xs sm:text-sm font-semibold text-white truncate">iPhone 18 Pro Max</h3>
-            <p class="text-[10px] sm:text-xs text-appleGray mt-0.5">From ₹1,79,900</p>
+            <h3 class="text-xs sm:text-sm font-semibold text-gray-900 truncate">iPhone 18 Pro Max</h3>
+            <p class="text-[10px] sm:text-xs text-gray-500 mt-0.5">From ₹1,79,900</p>
           </div>
         </div>
 
         <!-- CARD 0: iPhone 18 Pro -->
-        <div onclick="window.location.href='phone-detail.html?phone=iphone-18-pro'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-18-pro'" class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
           <!-- Phone Image -->
-          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+          <div class="flex justify-center bg-gray-50 rounded-xl mb-3 py-4">
             <img src="assets/images/iphone18-pro.png" alt="iPhone 18 Pro" class="h-28 sm:h-40 object-contain transition-transform duration-500 group-hover:scale-105" />
           </div>
           <!-- Name & Price -->
           <div>
             <span class="text-[9px] sm:text-[10px] font-bold tracking-widest text-gold uppercase mb-1 block">New Release</span>
-            <h3 class="text-xs sm:text-sm font-semibold text-white truncate">iPhone 18 Pro</h3>
-            <p class="text-[10px] sm:text-xs text-appleGray mt-0.5">From ₹1,64,900</p>
+            <h3 class="text-xs sm:text-sm font-semibold text-gray-900 truncate">iPhone 18 Pro</h3>
+            <p class="text-[10px] sm:text-xs text-gray-500 mt-0.5">From ₹1,64,900</p>
           </div>
         </div>
 
         <!-- CARD 1: iPhone 17 Pro Max -->
-        <div onclick="window.location.href='phone-detail.html?phone=iphone-17-pro-max'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-17-pro-max'" class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
           <!-- Phone Image -->
-          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+          <div class="flex justify-center bg-gray-50 rounded-xl mb-3 py-4">
             <img src="assets/images/iphone17-promax-silver.png" alt="iPhone 17 Pro Max" class="h-28 sm:h-40 object-contain group-hover:scale-105 transition-transform duration-500" />
           </div>
           <!-- Name & Price -->
           <div>
             <p class="text-[10px] text-gold font-bold uppercase tracking-wider mb-1">Top Flagship</p>
-            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-gold transition leading-tight">iPhone 17 Pro Max</h3>
-            <p class="text-xs text-appleGray mt-1 font-semibold">from ₹1,49,900</p>
+            <h3 class="text-sm sm:text-base font-bold text-gray-900 group-hover:text-black transition leading-tight">iPhone 17 Pro Max</h3>
+            <p class="text-xs text-gray-500 mt-1 font-semibold">from ₹1,49,900</p>
           </div>
 
         </div>
 
         <!-- CARD 2: iPhone 17 Pro -->
-        <div onclick="window.location.href='phone-detail.html?phone=iphone-17-pro'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
-          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-17-pro'" class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+          <div class="flex justify-center bg-gray-50 rounded-xl mb-3 py-4">
             <img src="assets/images/iphone17-pro-orange.jpg" alt="iPhone 17 Pro" class="h-28 sm:h-40 object-contain group-hover:scale-105 transition-transform duration-500" />
           </div>
           <div>
             <p class="text-[10px] text-gold font-bold uppercase tracking-wider mb-1">Pro Performance</p>
-            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-gold transition leading-tight">iPhone 17 Pro</h3>
-            <p class="text-xs text-appleGray mt-1 font-semibold">from ₹1,34,900</p>
+            <h3 class="text-sm sm:text-base font-bold text-gray-900 group-hover:text-black transition leading-tight">iPhone 17 Pro</h3>
+            <p class="text-xs text-gray-500 mt-1 font-semibold">from ₹1,34,900</p>
           </div>
         </div>
 
         <!-- CARD 3: iPhone 17 Air -->
-        <div onclick="window.location.href='phone-detail.html?phone=iphone-17-air'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
-          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-17-air'" class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+          <div class="flex justify-center bg-gray-50 rounded-xl mb-3 py-4">
             <img src="assets/images/iphone17-air.jpg" alt="iPhone 17 Air" class="h-28 sm:h-40 object-contain group-hover:scale-105 transition-transform duration-500" />
           </div>
           <div>
             <p class="text-[10px] text-gold font-bold uppercase tracking-wider mb-1">Ultra Thin</p>
-            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-gold transition leading-tight">iPhone 17 Air</h3>
-            <p class="text-xs text-appleGray mt-1 font-semibold">from ₹1,19,900</p>
+            <h3 class="text-sm sm:text-base font-bold text-gray-900 group-hover:text-black transition leading-tight">iPhone 17 Air</h3>
+            <p class="text-xs text-gray-500 mt-1 font-semibold">from ₹1,19,900</p>
           </div>
         </div>
 
         <!-- CARD 4: iPhone 17 -->
-        <div onclick="window.location.href='phone-detail.html?phone=iphone-17'" class="glass-card p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
-          <div class="flex justify-center bg-white/3 rounded-xl mb-3 py-4">
+        <div onclick="window.location.href='phone-detail.html?phone=iphone-17'" class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-3 sm:p-5 flex flex-col cursor-pointer group hover:border-gold/40 transition-all duration-300 active:scale-95">
+          <div class="flex justify-center bg-gray-50 rounded-xl mb-3 py-4">
             <img src="assets/images/iphone17-blue.jpg" alt="iPhone 17" class="h-28 sm:h-40 object-contain group-hover:scale-105 transition-transform duration-500" />
           </div>
           <div>
             <p class="text-[10px] text-gold font-bold uppercase tracking-wider mb-1">All-New Standard</p>
-            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-gold transition leading-tight">iPhone 17</h3>
-            <p class="text-xs text-appleGray mt-1 font-semibold">from ₹99,900</p>
+            <h3 class="text-sm sm:text-base font-bold text-gray-900 group-hover:text-black transition leading-tight">iPhone 17</h3>
+            <p class="text-xs text-gray-500 mt-1 font-semibold">from ₹99,900</p>
           </div>
         </div>
 
@@ -325,20 +308,20 @@
   <!-- =========================================================================
        3.5 SERVICES & USED PHONES (Two Box Layout)
        ========================================================================= -->
-  <section id="services-used" class="py-16 bg-[#08080a] relative border-y border-[rgba(255,255,255,0.04)]">
+  <section id="services-used" class="py-16 bg-white relative border-y border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- Box 1: Certified Used Phones -->
-        <div class="glass-card flex flex-col justify-between group hover:border-gold/40 transition-all duration-300 overflow-hidden">
+        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 flex flex-col justify-between group hover:border-gold/40 transition-all duration-300 overflow-hidden">
           <div class="p-8">
             <span class="badge-gold mb-4 inline-block">Pre-Owned</span>
-            <h3 class="text-3xl font-extrabold text-white mb-3">Certified Used Phones</h3>
-            <p class="text-appleGray text-sm leading-relaxed mb-6">
+            <h3 class="text-3xl font-extrabold text-gray-900 mb-3">Certified Used Phones</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">
               Looking for a premium phone on a budget? Explore our wide range of rigorously tested, certified pre-owned smartphones. We offer maximum quality assurance and peace of mind with every purchase.
             </p>
-            <ul class="text-xs text-appleMuted space-y-2 mb-8">
+            <ul class="text-xs text-gray-400 space-y-2 mb-8">
               <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Expertly Inspected & Tested</li>
               <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Best Value for Money</li>
               <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Exchange Offers Available</li>
@@ -353,14 +336,14 @@
         </div>
 
         <!-- Box 2: Services -->
-        <div class="glass-card flex flex-col justify-between group hover:border-white/20 transition-all duration-300 overflow-hidden">
+        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 flex flex-col justify-between group hover:border-white/20 transition-all duration-300 overflow-hidden">
           <div class="p-8">
-            <span class="badge-gray mb-4 inline-block text-white border border-white/20">Expert Repair</span>
-            <h3 class="text-3xl font-extrabold text-white mb-3">Services</h3>
-            <p class="text-appleGray text-sm leading-relaxed mb-6">
+            <span class="badge-gray mb-4 inline-block text-gray-900 border border-white/20">Expert Repair</span>
+            <h3 class="text-3xl font-extrabold text-gray-900 mb-3">Services</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">
               Cracked screen? Battery dying too fast? Our specialized technicians provide rapid, reliable, and professional repair services for all major smartphone brands. We use premium parts to restore your device.
             </p>
-            <ul class="text-xs text-appleMuted space-y-2 mb-8">
+            <ul class="text-xs text-gray-400 space-y-2 mb-8">
               <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold"></span> Screen & Battery Replacements</li>
               <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold"></span> Water Damage Repair</li>
               <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold"></span> Software & Diagnostics</li>
@@ -381,7 +364,7 @@
   <!-- =========================================================================
        4. FEATURED BANNER (Full-width black promotional section)
        ========================================================================= -->
-  <section id="featured" class="relative py-28 bg-[#050505] overflow-hidden border-y border-[rgba(255,255,255,0.06)]">
+  <section id="featured" class="relative py-28 bg-white overflow-hidden border-y border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative rounded-3xl overflow-hidden border border-[rgba(200,163,106,0.25)] bg-[#0A0A0C]">
         
@@ -400,10 +383,10 @@
         <div class="absolute bottom-0 left-0 right-0 p-8 sm:p-12 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div class="max-w-2xl">
             <span class="badge-gold mb-3">Titanium Masterwork</span>
-            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight">
               iPhone 17 Pro Max.
             </h2>
-            <p class="text-sm sm:text-base text-appleGray mt-4 max-w-lg">
+            <p class="text-sm sm:text-base text-gray-500 mt-4 max-w-lg">
               Forged in Grade 5 Titanium with revolutionary micro-blasted champagne accents. The highest optical zoom ever in an iPhone, backed by the A19 Pro neural architecture.
             </p>
           </div>
@@ -427,15 +410,15 @@
   <!-- =========================================================================
        5. WHY PLANET KSD (Four Glass Feature Cards with Gold Outline Icons)
        ========================================================================= -->
-  <section id="why-us" class="py-24 bg-[#08080A] relative">
+  <section id="why-us" class="py-24 bg-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
         <span class="badge-gold mb-3">The PLANET KSD Standard</span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
           Why Choose PLANET KSD
         </h2>
-        <p class="text-appleGray mt-3 text-base">
+        <p class="text-gray-500 mt-3 text-base">
           Setting the benchmark for premium Apple retail and certified customer hospitality across Kerala.
         </p>
       </div>
@@ -443,7 +426,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <!-- CARD 1: 100% Genuine Products -->
-        <div class="glass-card p-8 flex flex-col justify-between">
+        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-8 flex flex-col justify-between">
           <div>
             <div class="gold-icon-box mb-6">
               <!-- Shield Check Gold Outline -->
@@ -451,8 +434,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">100% Genuine Products</h3>
-            <p class="text-xs text-appleGray leading-relaxed">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">100% Genuine Products</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
               Every device is sealed with Apple India brand assurance and carries official 1-year pan-India Apple warranty valid at any authorized Apple Service Centre.
             </p>
           </div>
@@ -464,7 +447,7 @@
         </div>
 
         <!-- CARD 2: Best Value -->
-        <div class="glass-card p-8 flex flex-col justify-between">
+        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-8 flex flex-col justify-between">
           <div>
             <div class="gold-icon-box mb-6">
               <!-- Sparkles / Tag Gold Outline -->
@@ -472,8 +455,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">Best Value</h3>
-            <p class="text-xs text-appleGray leading-relaxed">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Best Value</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
               Unlock extraordinary value with top-tier trade-in exchange bonuses up to ₹12,000, instant credit card cashback, and complimentary premium accessory packs.
             </p>
           </div>
@@ -485,7 +468,7 @@
         </div>
 
         <!-- CARD 3: Trusted Service -->
-        <div class="glass-card p-8 flex flex-col justify-between">
+        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-8 flex flex-col justify-between">
           <div>
             <div class="gold-icon-box mb-6">
               <!-- Certified Wrench / Apple Care Outline -->
@@ -494,8 +477,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">Trusted Service</h3>
-            <p class="text-xs text-appleGray leading-relaxed">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Trusted Service</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
               Certified product specialists walk you through setup, seamless phone-to-phone data transfer, WhatsApp chat backup, and lifetime advisory care.
             </p>
           </div>
@@ -507,7 +490,7 @@
         </div>
 
         <!-- CARD 4: Kerala's Most Trusted -->
-        <div class="glass-card p-8 flex flex-col justify-between">
+        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-8 flex flex-col justify-between">
           <div>
             <div class="gold-icon-box mb-6">
               <!-- Trust / Star Outline -->
@@ -515,8 +498,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">Kerala's Most Trusted</h3>
-            <p class="text-xs text-appleGray leading-relaxed">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Kerala's Most Trusted</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
               Serving thousands of happy customers with a 5-star rating. We build long-term relationships through transparent pricing, genuine products, and unmatched hospitality.
             </p>
           </div>
@@ -535,7 +518,7 @@
   <!-- =========================================================================
        7. VISIT STORE (Kerala Showroom Experience)
        ========================================================================= -->
-  <section id="showroom" class="py-24 bg-[#08080A] relative border-t border-[rgba(255,255,255,0.06)]">
+  <section id="showroom" class="py-24 bg-white relative border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -553,7 +536,7 @@
             <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between">
               <div>
                 <span class="badge-gold">Kasaragod Flagship</span>
-                <p class="text-white font-bold text-base mt-1">PLANET KSD Showroom Floor</p>
+                <p class="text-gray-900 font-bold text-base mt-1">PLANET KSD Showroom Floor</p>
               </div>
               <span class="text-xs text-emerald-400 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-emerald-500/30 flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
@@ -566,23 +549,23 @@
         <!-- Showroom Information & Directions -->
         <div class="lg:col-span-5 space-y-6">
           <span class="badge-gold">Flagship Destination</span>
-          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
             Visit Our Showroom.
           </h2>
-          <p class="text-appleGray text-base leading-relaxed">
+          <p class="text-gray-500 text-base leading-relaxed">
             Step into Kasaragod’s architectural Apple showroom. Experience hands-on product discovery tables, customized titanium testing, and one-on-one specialist consultations.
           </p>
 
           <!-- Store Details Box -->
-          <div class="glass-card p-6 space-y-4 text-sm">
+          <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 sm:p-5 flex flex-col cursor-pointer group hover:shadow-xl hover:border-gray-200 transition-all duration-300 active:scale-95 p-6 space-y-4 text-sm">
             <div class="flex items-start gap-3">
               <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
               </svg>
               <div>
-                <strong class="text-white block">Location Address:</strong>
-                <span class="text-appleGray text-xs">
+                <strong class="text-gray-900 block">Location Address:</strong>
+                <span class="text-gray-500 text-xs">
                   PLANET KSD, Ground Floor, Gulf Bazar, Near New Bus Stand, Kasaragod, Kerala — 671124, India
                 </span>
               </div>
@@ -593,8 +576,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               <div>
-                 <strong class="text-white block">Store Hours:</strong>
-                <span class="text-appleGray text-xs">
+                 <strong class="text-gray-900 block">Store Hours:</strong>
+                <span class="text-gray-500 text-xs">
                   Monday – Saturday: 10:00 AM – 9:00 PM<br />
                   <span class="text-red-400 font-medium">Sunday: Closed</span>
                 </span>
@@ -606,7 +589,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
               </svg>
               <div>
-                <strong class="text-white block">Direct Helpline / WhatsApp:</strong>
+                <strong class="text-gray-900 block">Direct Helpline / WhatsApp:</strong>
                 <a href="tel:+919697771771" class="text-gold text-xs font-semibold hover:underline">+91 96977 71771</a>
               </div>
             </div>
@@ -635,17 +618,17 @@
   <!-- =========================================================================
        8. CONTACT CTA
        ========================================================================= -->
-  <section id="contact" class="py-24 bg-[#050505] relative border-t border-[rgba(255,255,255,0.06)]">
+  <section id="contact" class="py-24 bg-white relative border-t border-gray-200">
     <!-- Spotlights -->
     <div class="spotlight-center"></div>
 
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       
       <span class="badge-gold mb-4">Immediate Assistance</span>
-      <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+      <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
         Looking for a New iPhone?
       </h2>
-      <p class="text-appleGray text-base sm:text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+      <p class="text-gray-500 text-base sm:text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
         Connect directly with our Apple specialists. Get real-time stock confirmations, custom trade-in quotations for your old phone, or request insured doorstep delivery anywhere in Kerala.
       </p>
 
@@ -685,10 +668,10 @@
   <!-- =========================================================================
        9. LUXURY FOOTER
        ========================================================================= -->
-  <footer class="bg-[#030304] border-t border-[rgba(255,255,255,0.08)] pt-16 pb-12 text-sm text-appleGray">
+  <footer class="bg-[#030304] border-t border-[rgba(255,255,255,0.08)] pt-16 pb-12 text-sm text-gray-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-[rgba(255,255,255,0.06)]">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-gray-200">
         
         <!-- Col 1: Brand & Bio -->
         <div class="lg:col-span-2 space-y-4">
@@ -697,7 +680,7 @@
             <span class="text-xl font-bold tracking-wider text-white">PLANET <span class="text-gold">KSD</span></span>
           </div>
 
-          <p class="text-xs text-appleGray leading-relaxed max-w-sm">
+          <p class="text-xs text-gray-500 leading-relaxed max-w-sm">
             PLANET KSD is Kerala's premier Apple showroom destination, delivering authentic Indian devices, authorized manufacturer warranties, and bespoke personal concierge service in Kasaragod.
           </p>
 
@@ -731,7 +714,7 @@
 
         <!-- Col 2: Apple Devices -->
         <div>
-          <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Apple Products</h4>
+          <h4 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-4">Apple Products</h4>
           <ul class="space-y-2 text-xs">
             <li><a href="#products" class="hover:text-gold transition">iPhone 17 Pro Max</a></li>
             <li><a href="#products" class="hover:text-gold transition">iPhone 17 Pro</a></li>
@@ -745,7 +728,7 @@
 
         <!-- Col 3: Services & Support -->
         <div>
-          <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Store Services</h4>
+          <h4 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-4">Store Services</h4>
           <ul class="space-y-2 text-xs">
             <li><a href="#showroom" class="hover:text-gold transition">Showroom Consultation</a></li>
             <li><a href="#why-us" class="hover:text-gold transition">Trade-In Exchange</a></li>
@@ -757,22 +740,22 @@
 
         <!-- Col 4: Kerala Showroom -->
         <div>
-          <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">KSD Flagship</h4>
-          <p class="text-xs text-white font-medium">PLANET KSD Store</p>
-          <p class="text-[11px] text-appleMuted mt-1">Ground Floor, Gulf Bazar, New Bus Stand, Kasaragod, Kerala 671124</p>
-          <p class="text-[11px] text-appleMuted">Mon–Sat: 10:00 AM – 9:00 PM &nbsp;|&nbsp; <span class="text-red-400">Sun: Closed</span></p>
+          <h4 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-4">KSD Flagship</h4>
+          <p class="text-xs text-gray-900 font-medium">PLANET KSD Store</p>
+          <p class="text-[11px] text-gray-400 mt-1">Ground Floor, Gulf Bazar, New Bus Stand, Kasaragod, Kerala 671124</p>
+          <p class="text-[11px] text-gray-400">Mon–Sat: 10:00 AM – 9:00 PM &nbsp;|&nbsp; <span class="text-red-400">Sun: Closed</span></p>
           <p class="text-[11px] text-emerald-400 mt-2 font-medium">✓ Authorized India Stock</p>
         </div>
 
       </div>
 
       <!-- Bottom Bar -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-appleMuted">
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
         <p>© 2026 PLANET KSD. All Rights Reserved. Authorized Premium Apple Retailer, Kerala.</p>
         <div class="flex items-center gap-6 text-[11px]">
-          <a href="#" class="hover:text-white transition">Privacy Policy</a>
-          <a href="#" class="hover:text-white transition">Warranty Terms</a>
-          <a href="#" class="hover:text-white transition">GSTIN: 32AABCP1234F1Z8</a>
+          <a href="#" class="hover:text-gray-900 transition">Privacy Policy</a>
+          <a href="#" class="hover:text-gray-900 transition">Warranty Terms</a>
+          <a href="#" class="hover:text-gray-900 transition">GSTIN: 32AABCP1234F1Z8</a>
         </div>
       </div>
 
@@ -793,7 +776,7 @@
         </svg>
         <h3 class="text-lg font-bold text-white">Your Apple Bag</h3>
       </div>
-      <button onclick="closeCartDrawer()" class="text-gray-400 hover:text-white btn-icon-glass" style="width: 34px; height: 34px;">
+      <button onclick="closeCartDrawer()" class="text-gray-400 hover:text-gray-900 btn-icon-glass" style="width: 34px; height: 34px;">
         ✕
       </button>
     </div>
@@ -810,12 +793,12 @@
     </div>
 
     <!-- Empty State -->
-    <div id="cart-empty-state" class="flex-1 flex flex-col items-center justify-center p-6 text-center text-appleMuted">
-      <svg class="w-16 h-16 text-white/10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div id="cart-empty-state" class="flex-1 flex flex-col items-center justify-center p-6 text-center text-gray-400">
+      <svg class="w-16 h-16 text-gray-900/10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
       </svg>
-      <p class="text-white text-base font-semibold">Your bag is empty</p>
-      <p class="text-xs text-appleGray mt-1">Explore our flagship iPhones and accessories</p>
+      <p class="text-gray-900 text-base font-semibold">Your bag is empty</p>
+      <p class="text-xs text-gray-500 mt-1">Explore our flagship iPhones and accessories</p>
       <button onclick="closeCartDrawer()" class="btn-gold text-xs mt-6 py-2.5 px-6">
         Explore iPhones
       </button>
@@ -824,10 +807,10 @@
     <!-- Footer / Subtotal / Checkout -->
     <div id="cart-drawer-footer" class="p-6 border-t border-[rgba(255,255,255,0.08)] bg-[#0A0A0D]" style="display: none;">
       <div class="flex items-center justify-between mb-4">
-        <span class="text-appleGray text-sm">Estimated Total</span>
+        <span class="text-gray-500 text-sm">Estimated Total</span>
         <span id="cart-subtotal" class="text-lg sm:text-2xl font-black text-white">₹0</span>
       </div>
-      <p class="text-[11px] text-appleMuted mb-4">Prices include official Apple India GST and 1-Year Pan-India Warranty.</p>
+      <p class="text-[11px] text-gray-400 mb-4">Prices include official Apple India GST and 1-Year Pan-India Warranty.</p>
       
       <div class="space-y-2.5">
         <button onclick="checkoutViaWhatsApp()" class="btn-gold w-full py-3.5 text-sm flex items-center justify-center gap-2">
@@ -855,7 +838,7 @@
        ========================================================================= -->
   <div id="search-modal-overlay" class="modal-overlay" onclick="if(event.target === this) closeSearch()">
     <div class="modal-box max-w-2xl p-6">
-      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-200">
         <div class="flex items-center gap-3 flex-1">
           <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -865,7 +848,7 @@
             id="search-input" 
             oninput="handleSearchInput(this.value)" 
             placeholder="Search iPhone 17 Pro Max, titanium, A19..." 
-            class="w-full bg-transparent text-white placeholder-appleMuted text-base focus:outline-none"
+            class="w-full bg-transparent text-gray-900 placeholder-appleMuted text-base focus:outline-none"
           />
         </div>
         <button onclick="closeSearch()" class="btn-icon-glass w-8 h-8 ml-3 text-sm">✕</button>
