@@ -110,7 +110,10 @@
   <section id="hero" class="relative bg-obsidian min-h-[80vh] md:min-h-[90vh] flex items-center overflow-hidden">
     <!-- Background -->
     <div class="absolute inset-0 z-0 bg-black">
-      <img src="assets/images/store-bg.jpg" alt="Planet Store" class="w-full h-full object-cover object-center opacity-75" />
+      <!-- Mobile image (portrait) - shown only on small screens -->
+      <img src="assets/images/store-bg-mobile.jpg" alt="Planet Store" class="md:hidden w-full h-full object-cover object-center opacity-85" />
+      <!-- Desktop image (landscape) - hidden on mobile -->
+      <img src="assets/images/store-bg.jpg" alt="Planet Store" class="hidden md:block w-full h-full object-cover object-center opacity-75" />
       <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
     </div>
